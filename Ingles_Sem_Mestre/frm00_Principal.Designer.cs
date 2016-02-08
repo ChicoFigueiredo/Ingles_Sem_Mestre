@@ -52,6 +52,7 @@
             this.btnLicoes_Secoes_ListaTraducao.Text = "Lições -> Seções -> Lista de Tradução";
             this.btnLicoes_Secoes_ListaTraducao.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLicoes_Secoes_ListaTraducao.UseVisualStyleBackColor = true;
+            this.btnLicoes_Secoes_ListaTraducao.Click += new System.EventHandler(this.btnLicoes_Secoes_ListaTraducao_Click);
             // 
             // frm00_Principal
             // 

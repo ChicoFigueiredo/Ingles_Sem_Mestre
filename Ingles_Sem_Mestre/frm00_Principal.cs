@@ -16,5 +16,11 @@ namespace Ingles_Sem_Mestre
         {
             InitializeComponent();
         }
+
+        private void btnLicoes_Secoes_ListaTraducao_Click(object sender, EventArgs e)
+        {
+            frm01_Licoes_Secoes_ListaTraducoes f = new frm01_Licoes_Secoes_ListaTraducoes();
+            f.ShowDialog();
+        }
     }
 }
