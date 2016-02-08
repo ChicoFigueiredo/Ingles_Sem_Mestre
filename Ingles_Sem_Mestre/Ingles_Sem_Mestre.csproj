@@ -58,6 +58,11 @@
     <Compile Include="frm01_Licoes_Secoes_ListaTraducoes.Designer.cs">
       <DependentUpon>frm01_Licoes_Secoes_ListaTraducoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="INGLES_SEM_MESTREDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>INGLES_SEM_MESTREDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frm00_Principal.resx">
@@ -76,6 +81,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="INGLES_SEM_MESTREDataSet.xsc">
+      <DependentUpon>INGLES_SEM_MESTREDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="INGLES_SEM_MESTREDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>INGLES_SEM_MESTREDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="INGLES_SEM_MESTREDataSet.xss">
+      <DependentUpon>INGLES_SEM_MESTREDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
