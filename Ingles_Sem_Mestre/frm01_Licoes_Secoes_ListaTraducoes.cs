@@ -47,11 +47,39 @@ namespace Ingles_Sem_Mestre
         {
             if (e.KeyCode == Keys.F5)
             {
-                tabControl_Licao.SelectedIndex = 1;
+                tabControl_Licao.SelectedIndex = 0;
+                secaoDataGridView.Focus();
             }
             else if (e.KeyCode == Keys.F6)
             {
+                tabControl_Licao.SelectedIndex = 1;
+                materia_PortuguesRichTextBox.Focus();
+            }
+            else if (e.KeyCode == Keys.F7)
+            {
                 tabControl_Licao.SelectedIndex = 0;
+                tabControl_Secao.SelectedIndex = 0;
+                lista_de_TraducoesDataGridView.Focus();
+            }
+            else if (e.KeyCode == Keys.F8)
+            {
+                tabControl_Licao.SelectedIndex = 0;
+                tabControl_Secao.SelectedIndex = 1;
+                materia_PortuguesRichTextBox1.Focus();
+            }
+            else if (e.KeyCode == Keys.F9)
+            {
+                tabControl_Licao.SelectedIndex = 0;
+                tabControl_Secao.SelectedIndex = 0;
+                tabControl_Lista_Traducao.SelectedIndex = 0;
+                inglesTextBox.Focus();
+            }
+            else if (e.KeyCode == Keys.F10)
+            {
+                tabControl_Licao.SelectedIndex = 0;
+                tabControl_Secao.SelectedIndex = 0;
+                tabControl_Lista_Traducao.SelectedIndex = 1;
+                materia_PortuguesRichTextBox2.Focus();
             }
         }
 
