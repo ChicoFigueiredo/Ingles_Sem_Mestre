@@ -22,5 +22,12 @@ namespace Ingles_Sem_Mestre
             frm01_Licoes_Secoes_ListaTraducoes f = new frm01_Licoes_Secoes_ListaTraducoes();
             f.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Captura_Linguagem_Fonetica C = new Captura_Linguagem_Fonetica();
+
+            string g = C.Get_Fonetico("I like woman with bread");
+        }
     }
 }
