@@ -59,8 +59,6 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.licoesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.licoesDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -68,6 +66,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnSalvar_Alteracoes = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tituloTextBox = new System.Windows.Forms.TextBox();
@@ -142,7 +141,9 @@
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
-            this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
+            this.Grupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             numeroLabel = new System.Windows.Forms.Label();
             tituloLabel = new System.Windows.Forms.Label();
             materia_PortuguesLabel = new System.Windows.Forms.Label();
@@ -353,7 +354,7 @@
             this.licoesBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.licoesBindingNavigator.Name = "licoesBindingNavigator";
             this.licoesBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.licoesBindingNavigator.Size = new System.Drawing.Size(225, 25);
+            this.licoesBindingNavigator.Size = new System.Drawing.Size(251, 25);
             this.licoesBindingNavigator.TabIndex = 0;
             this.licoesBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -363,7 +364,7 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Adicionar novo";
             // 
             // bindingNavigatorCountItem
@@ -458,6 +459,7 @@
             this.licoesDataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.licoesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.licoesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Grupo,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
             this.licoesDataGridView.DataSource = this.licoesBindingSource;
@@ -465,22 +467,8 @@
             this.licoesDataGridView.Location = new System.Drawing.Point(0, 0);
             this.licoesDataGridView.Name = "licoesDataGridView";
             this.licoesDataGridView.RowHeadersWidth = 24;
-            this.licoesDataGridView.Size = new System.Drawing.Size(228, 593);
+            this.licoesDataGridView.Size = new System.Drawing.Size(254, 593);
             this.licoesDataGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Numero";
-            this.dataGridViewTextBoxColumn1.HeaderText = "#";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 39;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Titulo";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Titulo";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 58;
             // 
             // toolStripContainer1
             // 
@@ -492,11 +480,11 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.licoesDataGridView);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(228, 593);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(254, 593);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(228, 643);
+            this.toolStripContainer1.Size = new System.Drawing.Size(254, 643);
             this.toolStripContainer1.TabIndex = 2;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -554,6 +542,15 @@
             this.btnSalvar_Alteracoes.Text = "Salvar Alterações";
             this.btnSalvar_Alteracoes.Click += new System.EventHandler(this.btnSalvar_Alteracoes_Click);
             // 
+            // toolStripButton15
+            // 
+            this.toolStripButton15.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton15.Image")));
+            this.toolStripButton15.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton15.Name = "toolStripButton15";
+            this.toolStripButton15.Size = new System.Drawing.Size(46, 22);
+            this.toolStripButton15.Text = "&Sair";
+            this.toolStripButton15.Click += new System.EventHandler(this.toolStripButton15_Click);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -569,7 +566,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(1098, 643);
-            this.splitContainer1.SplitterDistance = 228;
+            this.splitContainer1.SplitterDistance = 254;
             this.splitContainer1.TabIndex = 6;
             // 
             // splitContainer2
@@ -591,7 +588,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tabControl_Licao);
-            this.splitContainer2.Size = new System.Drawing.Size(866, 643);
+            this.splitContainer2.Size = new System.Drawing.Size(840, 643);
             this.splitContainer2.SplitterDistance = 55;
             this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 0;
@@ -603,7 +600,7 @@
             this.tituloTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.licoesBindingSource, "Titulo", true));
             this.tituloTextBox.Location = new System.Drawing.Point(54, 29);
             this.tituloTextBox.Name = "tituloTextBox";
-            this.tituloTextBox.Size = new System.Drawing.Size(800, 20);
+            this.tituloTextBox.Size = new System.Drawing.Size(774, 20);
             this.tituloTextBox.TabIndex = 3;
             // 
             // numeroTextBox
@@ -622,7 +619,7 @@
             this.tabControl_Licao.Location = new System.Drawing.Point(0, 0);
             this.tabControl_Licao.Name = "tabControl_Licao";
             this.tabControl_Licao.SelectedIndex = 0;
-            this.tabControl_Licao.Size = new System.Drawing.Size(866, 583);
+            this.tabControl_Licao.Size = new System.Drawing.Size(840, 583);
             this.tabControl_Licao.TabIndex = 0;
             // 
             // tabSecoes
@@ -631,7 +628,7 @@
             this.tabSecoes.Location = new System.Drawing.Point(4, 22);
             this.tabSecoes.Name = "tabSecoes";
             this.tabSecoes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSecoes.Size = new System.Drawing.Size(858, 557);
+            this.tabSecoes.Size = new System.Drawing.Size(832, 557);
             this.tabSecoes.TabIndex = 1;
             this.tabSecoes.Text = "Seções (F5)";
             this.tabSecoes.UseVisualStyleBackColor = true;
@@ -650,8 +647,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.splitContainer4);
-            this.splitContainer3.Size = new System.Drawing.Size(852, 551);
-            this.splitContainer3.SplitterDistance = 242;
+            this.splitContainer3.Size = new System.Drawing.Size(826, 551);
+            this.splitContainer3.SplitterDistance = 259;
             this.splitContainer3.TabIndex = 0;
             // 
             // toolStripContainer2
@@ -665,11 +662,11 @@
             // 
             this.toolStripContainer2.ContentPanel.AutoScroll = true;
             this.toolStripContainer2.ContentPanel.Controls.Add(this.secaoDataGridView);
-            this.toolStripContainer2.ContentPanel.Size = new System.Drawing.Size(242, 501);
+            this.toolStripContainer2.ContentPanel.Size = new System.Drawing.Size(259, 501);
             this.toolStripContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer2.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer2.Name = "toolStripContainer2";
-            this.toolStripContainer2.Size = new System.Drawing.Size(242, 551);
+            this.toolStripContainer2.Size = new System.Drawing.Size(259, 551);
             this.toolStripContainer2.TabIndex = 3;
             this.toolStripContainer2.Text = "toolStripContainer2";
             // 
@@ -704,7 +701,7 @@
             this.bindingNavigator1.MovePreviousItem = this.toolStripButton4;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.toolStripTextBox1;
-            this.bindingNavigator1.Size = new System.Drawing.Size(239, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(256, 25);
             this.bindingNavigator1.TabIndex = 0;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -821,7 +818,7 @@
             this.secaoDataGridView.Location = new System.Drawing.Point(0, 0);
             this.secaoDataGridView.Name = "secaoDataGridView";
             this.secaoDataGridView.RowHeadersWidth = 24;
-            this.secaoDataGridView.Size = new System.Drawing.Size(242, 501);
+            this.secaoDataGridView.Size = new System.Drawing.Size(259, 501);
             this.secaoDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn4
@@ -877,7 +874,7 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.tabControl_Secao);
-            this.splitContainer4.Size = new System.Drawing.Size(606, 551);
+            this.splitContainer4.Size = new System.Drawing.Size(563, 551);
             this.splitContainer4.SplitterDistance = 25;
             this.splitContainer4.TabIndex = 0;
             // 
@@ -888,7 +885,7 @@
             this.titulo_SecaoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.secaoBindingSource, "Titulo_Secao", true));
             this.titulo_SecaoTextBox.Location = new System.Drawing.Point(98, 3);
             this.titulo_SecaoTextBox.Name = "titulo_SecaoTextBox";
-            this.titulo_SecaoTextBox.Size = new System.Drawing.Size(503, 20);
+            this.titulo_SecaoTextBox.Size = new System.Drawing.Size(460, 20);
             this.titulo_SecaoTextBox.TabIndex = 1;
             // 
             // tabControl_Secao
@@ -899,7 +896,7 @@
             this.tabControl_Secao.Location = new System.Drawing.Point(0, 0);
             this.tabControl_Secao.Name = "tabControl_Secao";
             this.tabControl_Secao.SelectedIndex = 0;
-            this.tabControl_Secao.Size = new System.Drawing.Size(606, 522);
+            this.tabControl_Secao.Size = new System.Drawing.Size(563, 522);
             this.tabControl_Secao.TabIndex = 0;
             // 
             // tabPage1
@@ -908,7 +905,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(598, 496);
+            this.tabPage1.Size = new System.Drawing.Size(555, 496);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Lista de Traduções (F7)";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -928,7 +925,7 @@
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.tabControl_Lista_Traducao);
-            this.splitContainer5.Size = new System.Drawing.Size(592, 490);
+            this.splitContainer5.Size = new System.Drawing.Size(549, 490);
             this.splitContainer5.SplitterDistance = 327;
             this.splitContainer5.TabIndex = 0;
             // 
@@ -943,11 +940,11 @@
             // 
             this.toolStripContainer3.ContentPanel.AutoScroll = true;
             this.toolStripContainer3.ContentPanel.Controls.Add(this.lista_de_TraducoesDataGridView);
-            this.toolStripContainer3.ContentPanel.Size = new System.Drawing.Size(592, 277);
+            this.toolStripContainer3.ContentPanel.Size = new System.Drawing.Size(549, 277);
             this.toolStripContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer3.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer3.Name = "toolStripContainer3";
-            this.toolStripContainer3.Size = new System.Drawing.Size(592, 327);
+            this.toolStripContainer3.Size = new System.Drawing.Size(549, 327);
             this.toolStripContainer3.TabIndex = 4;
             this.toolStripContainer3.Text = "toolStripContainer3";
             // 
@@ -1102,7 +1099,7 @@
             this.lista_de_TraducoesDataGridView.Location = new System.Drawing.Point(0, 0);
             this.lista_de_TraducoesDataGridView.Name = "lista_de_TraducoesDataGridView";
             this.lista_de_TraducoesDataGridView.RowHeadersWidth = 24;
-            this.lista_de_TraducoesDataGridView.Size = new System.Drawing.Size(592, 277);
+            this.lista_de_TraducoesDataGridView.Size = new System.Drawing.Size(549, 277);
             this.lista_de_TraducoesDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn6
@@ -1172,7 +1169,7 @@
             this.tabControl_Lista_Traducao.Location = new System.Drawing.Point(0, 0);
             this.tabControl_Lista_Traducao.Name = "tabControl_Lista_Traducao";
             this.tabControl_Lista_Traducao.SelectedIndex = 0;
-            this.tabControl_Lista_Traducao.Size = new System.Drawing.Size(592, 159);
+            this.tabControl_Lista_Traducao.Size = new System.Drawing.Size(549, 159);
             this.tabControl_Lista_Traducao.TabIndex = 0;
             // 
             // tabPage3
@@ -1188,7 +1185,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(584, 133);
+            this.tabPage3.Size = new System.Drawing.Size(541, 133);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Tradução (F9)";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1200,7 +1197,7 @@
             this.transliteracaoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lista_de_TraducoesBindingSource, "Transliteracao", true));
             this.transliteracaoTextBox.Location = new System.Drawing.Point(87, 84);
             this.transliteracaoTextBox.Name = "transliteracaoTextBox";
-            this.transliteracaoTextBox.Size = new System.Drawing.Size(461, 20);
+            this.transliteracaoTextBox.Size = new System.Drawing.Size(418, 20);
             this.transliteracaoTextBox.TabIndex = 7;
             // 
             // foneticoTextBox
@@ -1210,7 +1207,7 @@
             this.foneticoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lista_de_TraducoesBindingSource, "Fonetico", true));
             this.foneticoTextBox.Location = new System.Drawing.Point(87, 58);
             this.foneticoTextBox.Name = "foneticoTextBox";
-            this.foneticoTextBox.Size = new System.Drawing.Size(461, 20);
+            this.foneticoTextBox.Size = new System.Drawing.Size(418, 20);
             this.foneticoTextBox.TabIndex = 5;
             // 
             // traducaoTextBox
@@ -1220,7 +1217,7 @@
             this.traducaoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lista_de_TraducoesBindingSource, "Traducao", true));
             this.traducaoTextBox.Location = new System.Drawing.Point(87, 32);
             this.traducaoTextBox.Name = "traducaoTextBox";
-            this.traducaoTextBox.Size = new System.Drawing.Size(461, 20);
+            this.traducaoTextBox.Size = new System.Drawing.Size(418, 20);
             this.traducaoTextBox.TabIndex = 3;
             // 
             // inglesTextBox
@@ -1230,7 +1227,7 @@
             this.inglesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lista_de_TraducoesBindingSource, "Ingles", true));
             this.inglesTextBox.Location = new System.Drawing.Point(87, 6);
             this.inglesTextBox.Name = "inglesTextBox";
-            this.inglesTextBox.Size = new System.Drawing.Size(461, 20);
+            this.inglesTextBox.Size = new System.Drawing.Size(418, 20);
             this.inglesTextBox.TabIndex = 1;
             this.inglesTextBox.TextChanged += new System.EventHandler(this.inglesTextBox_TextChanged);
             this.inglesTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inglesTextBox_KeyDown);
@@ -1342,14 +1339,26 @@
             this.ContentPanel.AutoScroll = true;
             this.ContentPanel.Size = new System.Drawing.Size(592, 301);
             // 
-            // toolStripButton15
+            // Grupo
             // 
-            this.toolStripButton15.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton15.Image")));
-            this.toolStripButton15.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton15.Name = "toolStripButton15";
-            this.toolStripButton15.Size = new System.Drawing.Size(46, 22);
-            this.toolStripButton15.Text = "&Sair";
-            this.toolStripButton15.Click += new System.EventHandler(this.toolStripButton15_Click);
+            this.Grupo.DataPropertyName = "Grupo";
+            this.Grupo.HeaderText = "G";
+            this.Grupo.Name = "Grupo";
+            this.Grupo.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Numero";
+            this.dataGridViewTextBoxColumn1.HeaderText = "#";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 39;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Titulo";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Titulo";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 58;
             // 
             // frm01_Licoes_Secoes_ListaTraducoes
             // 
@@ -1468,8 +1477,6 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton licoesBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView licoesDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
@@ -1554,5 +1561,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.ToolStripButton toolStripButton15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Grupo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }

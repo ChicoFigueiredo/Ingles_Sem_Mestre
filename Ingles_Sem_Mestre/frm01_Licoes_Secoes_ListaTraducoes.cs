@@ -153,6 +153,7 @@ namespace Ingles_Sem_Mestre
             if (e.KeyCode == Keys.Enter && e.Control == true)
             {
                 Captura_Linguagem_Fonetica C = new Captura_Linguagem_Fonetica();
+                Captura_Traducao_BING T = new Captura_Traducao_BING();
                 try
                 {
 
@@ -160,6 +161,33 @@ namespace Ingles_Sem_Mestre
                     reader.Rate = -2;
                     reader.Volume = 100;
                     reader.SpeakAsync(inglesTextBox.Text);
+
+                    foneticoTextBox.Text = C.Get_Fonetico(inglesTextBox.Text);
+
+                    traducaoTextBox.Text = T.Get_Traducao(inglesTextBox.Text);
+                }
+                catch (Exception Err)
+                {
+                    try
+                    {
+                        foneticoTextBox.Text = C.Get_Fonetico(inglesTextBox.Text);
+                    }
+                    catch (Exception Err2)
+                    {
+                        foneticoTextBox.Text = "<<" + Err.Message + " at " + Err.Source + " / " + Err2.Message + " at " + Err2.Source + ">>";
+                    }
+                }
+                
+            }
+        }
+        private void inglesTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
+/*
 
                     // Select a speech recognizer that supports English.
                     RecognizerInfo info = null;
@@ -185,33 +213,11 @@ namespace Ingles_Sem_Mestre
                     eng.SpeechRecognized +=
                         new EventHandler<SpeechRecognizedEventArgs>(sre_SpeechRecognized);
 
-
-
-
-                    //foneticoTextBox.Text = C.Get_Fonetico(inglesTextBox.Text);
-                }
-                catch (Exception Err)
-                {
-                    try
-                    {
-                        foneticoTextBox.Text = C.Get_Fonetico(inglesTextBox.Text);
-                    }
-                    catch (Exception Err2)
-                    {
-                        foneticoTextBox.Text = "<<" + Err.Message + " at " + Err.Source + " / " + Err2.Message + " at " + Err2.Source + ">>";
-                    }
-                }
-                
-            }
-        }
-        // Create a simple handler for the SpeechRecognized event.
+            // Create a simple handler for the SpeechRecognized event.
         void sre_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             MessageBox.Show("Speech recognized: " + e.Result.Text);
         }
-        private void inglesTextBox_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-    }
-}
+
+*/
