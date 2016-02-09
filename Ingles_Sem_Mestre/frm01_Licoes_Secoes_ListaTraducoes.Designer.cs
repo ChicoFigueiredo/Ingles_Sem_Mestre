@@ -59,6 +59,9 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.licoesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.licoesDataGridView = new System.Windows.Forms.DataGridView();
+            this.Grupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -141,9 +144,6 @@
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
-            this.Grupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             numeroLabel = new System.Windows.Forms.Label();
             tituloLabel = new System.Windows.Forms.Label();
             materia_PortuguesLabel = new System.Windows.Forms.Label();
@@ -305,7 +305,7 @@
             // 
             this.licoesBindingSource.DataMember = "Licoes";
             this.licoesBindingSource.DataSource = this.iNGLES_SEM_MESTREDataSet;
-            this.licoesBindingSource.Sort = "Numero DESC";
+            this.licoesBindingSource.Sort = "Grupo, Numero DESC";
             // 
             // licoesTableAdapter
             // 
@@ -469,6 +469,27 @@
             this.licoesDataGridView.RowHeadersWidth = 24;
             this.licoesDataGridView.Size = new System.Drawing.Size(254, 593);
             this.licoesDataGridView.TabIndex = 1;
+            // 
+            // Grupo
+            // 
+            this.Grupo.DataPropertyName = "Grupo";
+            this.Grupo.HeaderText = "G";
+            this.Grupo.Name = "Grupo";
+            this.Grupo.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Numero";
+            this.dataGridViewTextBoxColumn1.HeaderText = "#";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 39;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Titulo";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Titulo";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 58;
             // 
             // toolStripContainer1
             // 
@@ -1239,7 +1260,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(584, 133);
+            this.tabPage4.Size = new System.Drawing.Size(541, 133);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Matéria da Tradução (F10)";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1250,7 +1271,7 @@
             this.materia_PortuguesRichTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materia_PortuguesRichTextBox2.Location = new System.Drawing.Point(3, 3);
             this.materia_PortuguesRichTextBox2.Name = "materia_PortuguesRichTextBox2";
-            this.materia_PortuguesRichTextBox2.Size = new System.Drawing.Size(578, 127);
+            this.materia_PortuguesRichTextBox2.Size = new System.Drawing.Size(535, 127);
             this.materia_PortuguesRichTextBox2.TabIndex = 1;
             this.materia_PortuguesRichTextBox2.Text = "";
             // 
@@ -1261,7 +1282,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(598, 496);
+            this.tabPage2.Size = new System.Drawing.Size(555, 496);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Matéria da Seção (F8)";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1274,7 +1295,7 @@
             this.materia_PortuguesRichTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.secaoBindingSource, "Materia_Portugues", true));
             this.materia_PortuguesRichTextBox1.Location = new System.Drawing.Point(6, 23);
             this.materia_PortuguesRichTextBox1.Name = "materia_PortuguesRichTextBox1";
-            this.materia_PortuguesRichTextBox1.Size = new System.Drawing.Size(586, 467);
+            this.materia_PortuguesRichTextBox1.Size = new System.Drawing.Size(543, 467);
             this.materia_PortuguesRichTextBox1.TabIndex = 1;
             this.materia_PortuguesRichTextBox1.Text = "";
             // 
@@ -1285,7 +1306,7 @@
             this.tabMateria_Licao.Location = new System.Drawing.Point(4, 22);
             this.tabMateria_Licao.Name = "tabMateria_Licao";
             this.tabMateria_Licao.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMateria_Licao.Size = new System.Drawing.Size(858, 557);
+            this.tabMateria_Licao.Size = new System.Drawing.Size(832, 557);
             this.tabMateria_Licao.TabIndex = 0;
             this.tabMateria_Licao.Text = "Matéria da Lição (F6)";
             this.tabMateria_Licao.UseVisualStyleBackColor = true;
@@ -1338,27 +1359,6 @@
             // 
             this.ContentPanel.AutoScroll = true;
             this.ContentPanel.Size = new System.Drawing.Size(592, 301);
-            // 
-            // Grupo
-            // 
-            this.Grupo.DataPropertyName = "Grupo";
-            this.Grupo.HeaderText = "G";
-            this.Grupo.Name = "Grupo";
-            this.Grupo.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Numero";
-            this.dataGridViewTextBoxColumn1.HeaderText = "#";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 39;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Titulo";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Titulo";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 58;
             // 
             // frm01_Licoes_Secoes_ListaTraducoes
             // 
