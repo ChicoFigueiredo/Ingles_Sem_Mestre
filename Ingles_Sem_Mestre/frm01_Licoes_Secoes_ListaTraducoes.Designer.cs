@@ -144,6 +144,8 @@
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
+            this.LicoesTimer = new System.Windows.Forms.Timer(this.components);
+            this.timerSecoes = new System.Windows.Forms.Timer(this.components);
             numeroLabel = new System.Windows.Forms.Label();
             tituloLabel = new System.Windows.Forms.Label();
             materia_PortuguesLabel = new System.Windows.Forms.Label();
@@ -305,7 +307,7 @@
             // 
             this.licoesBindingSource.DataMember = "Licoes";
             this.licoesBindingSource.DataSource = this.iNGLES_SEM_MESTREDataSet;
-            this.licoesBindingSource.Sort = "Grupo, Numero DESC";
+            this.licoesBindingSource.Sort = "Grupo ASC, Numero DESC";
             // 
             // licoesTableAdapter
             // 
@@ -469,6 +471,7 @@
             this.licoesDataGridView.RowHeadersWidth = 24;
             this.licoesDataGridView.Size = new System.Drawing.Size(254, 593);
             this.licoesDataGridView.TabIndex = 1;
+            this.licoesDataGridView.Leave += new System.EventHandler(this.licoesDataGridView_Leave);
             // 
             // Grupo
             // 
@@ -534,6 +537,8 @@
             // 
             this.txtBusca_Licoes.Name = "txtBusca_Licoes";
             this.txtBusca_Licoes.Size = new System.Drawing.Size(150, 25);
+            this.txtBusca_Licoes.Leave += new System.EventHandler(this.txtBusca_Licoes_Leave);
+            this.txtBusca_Licoes.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBusca_Licoes_KeyUp);
             // 
             // statusStrip1
             // 
@@ -844,6 +849,7 @@
             this.secaoDataGridView.RowHeadersWidth = 24;
             this.secaoDataGridView.Size = new System.Drawing.Size(259, 501);
             this.secaoDataGridView.TabIndex = 0;
+            this.secaoDataGridView.Leave += new System.EventHandler(this.secaoDataGridView_Leave);
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -881,6 +887,7 @@
             // 
             this.txtBusca_Secoes.Name = "txtBusca_Secoes";
             this.txtBusca_Secoes.Size = new System.Drawing.Size(150, 25);
+            this.txtBusca_Secoes.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBusca_Secoes_KeyUp);
             // 
             // splitContainer4
             // 
@@ -1364,6 +1371,15 @@
             this.ContentPanel.AutoScroll = true;
             this.ContentPanel.Size = new System.Drawing.Size(592, 301);
             // 
+            // LicoesTimer
+            // 
+            this.LicoesTimer.Interval = 500;
+            this.LicoesTimer.Tick += new System.EventHandler(this.LicoesTimer_Tick);
+            // 
+            // timerSecoes
+            // 
+            this.timerSecoes.Interval = 500;
+            // 
             // frm01_Licoes_Secoes_ListaTraducoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1568,5 +1584,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Grupo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Timer LicoesTimer;
+        private System.Windows.Forms.Timer timerSecoes;
     }
 }

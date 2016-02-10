@@ -9,11 +9,24 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Speech.Synthesis;
 using System.Speech.Recognition;
+using Ingles_Sem_Mestre.Utilitarios;
 
 namespace Ingles_Sem_Mestre
 {
     public partial class frm01_Licoes_Secoes_ListaTraducoes : Form
     {
+
+        private Control GetFocusedControl()
+        {
+            Control focusedControl = null;
+            // To get hold of the focused control:
+            IntPtr focusedHandle = NativeMethods.GetFocus();
+            if (focusedHandle != IntPtr.Zero)
+                // Note that if the focused Control is not a .Net control, then this will return null.
+                focusedControl = Control.FromHandle(focusedHandle);
+            return focusedControl;
+        }
+
         public frm01_Licoes_Secoes_ListaTraducoes()
         {
             InitializeComponent();
@@ -126,12 +139,28 @@ namespace Ingles_Sem_Mestre
                 lista_de_TraducoesBindingSource.MovePrevious();
                 inglesTextBox.Focus();
             }
-            else if (e.KeyCode == Keys.F3 || (e.KeyCode == Keys.Divide && e.Control == true) )
+            else if (e.KeyCode == Keys.F3 || (e.KeyCode == Keys.Divide && e.Control == true))
             {
                 SpeechSynthesizer reader = new SpeechSynthesizer();
                 reader.Rate = -2;
                 reader.Volume = 100;
                 reader.SpeakAsync(inglesTextBox.Text);
+            }
+            else if ((e.KeyCode == Keys.F && e.Control == true) || (e.KeyCode == Keys.Multiply && e.Control == true))
+            {
+                SpeechSynthesizer reader = new SpeechSynthesizer();
+                reader.Rate = -2;
+                reader.Volume = 100;
+                Control C = GetFocusedControl();
+                try
+                {
+                    reader.SpeakAsync(C.Text);
+                }
+                catch(Exception Err)
+                {
+                    Console.Write(Err.Message);
+                }
+                
             }
 
 
@@ -181,6 +210,70 @@ namespace Ingles_Sem_Mestre
             }
         }
         private void inglesTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBusca_Licoes_Leave(object sender, EventArgs e)
+        {
+            Int32 a = -1;
+            if (txtBusca_Licoes.Text.Trim() == "")
+            {
+                licoesBindingSource.RemoveFilter();
+            }
+            else if (txtBusca_Licoes.Text.Trim().ToUpper().Substring(0, 1) == "G" && Int32.TryParse(txtBusca_Licoes.Text.Trim().ToUpper().Substring(1),out a) == true)
+            {
+                licoesBindingSource.Filter = "Grupo = " + txtBusca_Licoes.Text.Trim().ToUpper().Substring(1);
+
+            }
+            else if (Int32.TryParse(txtBusca_Licoes.Text.Trim(),out a) == true)
+            {
+                licoesBindingSource.Filter = "Numero = " + txtBusca_Licoes.Text.Trim();
+
+            }
+            else
+            {
+                String Completa = "";
+                licoesBindingSource.Filter = "";
+                String[] palavas_chaves = txtBusca_Licoes.Text.Trim().Split();
+                foreach (string w in palavas_chaves)
+                {
+                    licoesBindingSource.Filter = licoesBindingSource.Filter + Completa + "Titulo like \'%" + w + "%\'";
+                    if (Completa == "")
+                    {
+                        Completa = " and ";
+                    }
+                }
+                
+            };
+            LicoesTimer.Enabled = false;
+        }
+
+        private void LicoesTimer_Tick(object sender, EventArgs e)
+        {
+            txtBusca_Licoes_Leave(sender, e);
+            LicoesTimer.Enabled = false;
+            LicoesTimer.Stop();
+        }
+
+        private void txtBusca_Licoes_KeyUp(object sender, KeyEventArgs e)
+        {
+            LicoesTimer.Enabled = true;
+            LicoesTimer.Stop();
+            LicoesTimer.Start();
+        }
+
+        private void secaoDataGridView_Leave(object sender, EventArgs e)
+        {
+            licoesBindingNavigatorSaveItem_Click(sender, e);
+        }
+
+        private void licoesDataGridView_Leave(object sender, EventArgs e)
+        {
+            licoesBindingNavigatorSaveItem_Click(sender, e);
+        }
+
+        private void txtBusca_Secoes_KeyUp(object sender, KeyEventArgs e)
         {
 
         }
