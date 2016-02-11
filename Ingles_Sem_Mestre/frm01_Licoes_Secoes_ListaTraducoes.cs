@@ -177,23 +177,23 @@ namespace Ingles_Sem_Mestre
             Application.Exit();
         }
 
+        private Captura_Linguagem_Fonetica C = new Captura_Linguagem_Fonetica();
+        private Captura_Traducao_BING T = new Captura_Traducao_BING();
+
         private void inglesTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && e.Control == true)
             {
-                Captura_Linguagem_Fonetica C = new Captura_Linguagem_Fonetica();
-                Captura_Traducao_BING T = new Captura_Traducao_BING();
                 try
                 {
-
                     SpeechSynthesizer reader = new SpeechSynthesizer();
                     reader.Rate = -2;
                     reader.Volume = 100;
                     reader.SpeakAsync(inglesTextBox.Text);
 
+                    traducaoTextBox.Text = T.Get_Traducao(inglesTextBox.Text);
                     foneticoTextBox.Text = C.Get_Fonetico(inglesTextBox.Text);
 
-                    traducaoTextBox.Text = T.Get_Traducao(inglesTextBox.Text);
                 }
                 catch (Exception Err)
                 {
