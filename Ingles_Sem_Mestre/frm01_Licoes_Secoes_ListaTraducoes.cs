@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Speech.Synthesis;
 using System.Speech.Recognition;
 using Ingles_Sem_Mestre.Utilitarios;
+using System.Globalization;
 
 namespace Ingles_Sem_Mestre
 {
@@ -42,6 +43,9 @@ namespace Ingles_Sem_Mestre
 
         }
 
+        private CultureInfo pt_BR = CultureInfo.GetCultureInfo("pt-BR");
+        private CultureInfo en_US = CultureInfo.GetCultureInfo("en-US");
+
         private void frm01_Licoes_Secoes_ListaTraducoes_Load(object sender, EventArgs e)
         {
             // TODO: esta linha de código carrega dados na tabela 'iNGLES_SEM_MESTREDataSet.Licoes'. Você pode movê-la ou removê-la conforme necessário.
@@ -50,6 +54,10 @@ namespace Ingles_Sem_Mestre
             this.secaoTableAdapter.Fill(this.iNGLES_SEM_MESTREDataSet.Secao);
             // TODO: esta linha de código carrega dados na tabela 'iNGLES_SEM_MESTREDataSet.Lista_de_Traducoes'. Você pode movê-la ou removê-la conforme necessário.
             this.lista_de_TraducoesTableAdapter.Fill(this.iNGLES_SEM_MESTREDataSet.Lista_de_Traducoes);
+
+            SpeechSynthesizer reader = new SpeechSynthesizer();
+            toolStripComboBox_Vozes.Items.AddRange(reader.GetInstalledVoices().Select(s => s.VoiceInfo.Name).ToArray<string>());
+            toolStripComboBox_Vozes.Text = reader.GetInstalledVoices().Where(w => w.VoiceInfo.Culture.Name == "en-US").Select(s => s.VoiceInfo.Name).FirstOrDefault().ToString();
 
         }
 
@@ -106,6 +114,7 @@ namespace Ingles_Sem_Mestre
             }
             else if (e.KeyCode == Keys.F11 || ((e.KeyCode == Keys.Add || e.KeyCode == Keys.Insert) && e.Control == true))
             {
+                licoesBindingNavigatorSaveItem_Click(sender, e);
                 lista_de_TraducoesBindingSource.AddNew();
                 inglesTextBox.Focus();
             }
@@ -141,29 +150,31 @@ namespace Ingles_Sem_Mestre
             }
             else if (e.KeyCode == Keys.F3 || (e.KeyCode == Keys.Divide && e.Control == true))
             {
-                SpeechSynthesizer reader = new SpeechSynthesizer();
-                reader.Rate = -2;
-                reader.Volume = 100;
-                reader.SpeakAsync(inglesTextBox.Text);
+                Ler_Ingles(inglesTextBox.Text);
             }
             else if ((e.KeyCode == Keys.F && e.Control == true) || (e.KeyCode == Keys.Multiply && e.Control == true))
             {
-                SpeechSynthesizer reader = new SpeechSynthesizer();
-                reader.Rate = -2;
-                reader.Volume = 100;
                 Control C = GetFocusedControl();
                 try
                 {
-                    reader.SpeakAsync(C.Text);
+                    Ler_Ingles(C.Text);
                 }
                 catch(Exception Err)
                 {
                     Console.Write(Err.Message);
                 }
-                
             }
 
 
+        }
+
+        private void Ler_Ingles(string texto)
+        {
+            SpeechSynthesizer reader = new SpeechSynthesizer();
+            reader.SelectVoice(toolStripComboBox_Vozes.Text);
+            reader.Rate = -2;
+            reader.Volume = 100;
+            reader.SpeakAsync(texto);
         }
 
         private void toolStripButton14_Click(object sender, EventArgs e)
@@ -186,10 +197,7 @@ namespace Ingles_Sem_Mestre
             {
                 try
                 {
-                    SpeechSynthesizer reader = new SpeechSynthesizer();
-                    reader.Rate = -2;
-                    reader.Volume = 100;
-                    reader.SpeakAsync(inglesTextBox.Text);
+                    Ler_Ingles(inglesTextBox.Text);
 
                     traducaoTextBox.Text = T.Get_Traducao(inglesTextBox.Text);
                     foneticoTextBox.Text = C.Get_Fonetico(inglesTextBox.Text);

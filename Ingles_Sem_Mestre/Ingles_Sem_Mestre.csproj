@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>CD189BF8EB54E5DF3E0F60504F4723BB0AC25957</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>A2A84FDD77EC3596B52E2C6933D1B6389DF9CEF3</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>Ingles_Sem_Mestre_1_TemporaryKey.pfx</ManifestKeyFile>
@@ -62,7 +62,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>Ingles_Sem_Mestre_1_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
@@ -71,6 +71,10 @@
     <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
@@ -138,8 +142,8 @@
       <DependentUpon>INGLES_SEM_MESTREDataSet.xsd</DependentUpon>
     </None>
     <None Include="Ingles_Sem_Mestre_1_TemporaryKey.pfx" />
-    <None Include="Ingles_Sem_Mestre_ChaveTemporária_Antiga.pfx" />
     <None Include="Ingles_Sem_Mestre_TemporaryKey.pfx" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

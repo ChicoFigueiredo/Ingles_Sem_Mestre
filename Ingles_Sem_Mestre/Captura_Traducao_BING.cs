@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Net;
 using System.Xml;
+using Newtonsoft.Json.Linq;
 //https://api.datamarket.azure.com/Bing/MicrosoftTranslator/v1/Translate?To='pt'&From='en'&Text='bread'
 namespace Ingles_Sem_Mestre
 {
@@ -13,10 +14,14 @@ namespace Ingles_Sem_Mestre
     {
         private WebClientX web = new WebClientX();
         private String _last_navigation = "";
-        const String site = "https://api.datamarket.azure.com/Bing/MicrosoftTranslator/v1/Translate";
-        const String site_req = "To='pt'&From='en'&Text='";
+        //const String site = "https://api.datamarket.azure.com/Bing/MicrosoftTranslator/v1/Translate"; // DECREPT
+        //https://translate.googleapis.com/translate_a/single?client=gtx&sl=en-US&tl=pt-BR&dt=t&q=the%20book%20is%20on%20the%20table
+        const String site = "https://translate.googleapis.com/translate_a/single";
+        //const String site_req = "To='pt'&From='en'&Text='";
+        const String site_req = "client=gtx&sl=en-US&tl=pt-BR&dt=t&q=";
         const String user = "fran.fig@gmail.com";
         const String pwd = "anQnvgVTDjgNz0MDIqonWSmn3y73GGcZ+QcXt/iIjpY";
+        
 
         public Captura_Traducao_BING()
         {
@@ -25,6 +30,16 @@ namespace Ingles_Sem_Mestre
         }
 
         public string Get_Traducao(string texto_a_fonetizar)
+        {
+            string param = site_req + Uri.EscapeUriString(texto_a_fonetizar) + "'";
+            _last_navigation = web.DownloadString(site  + "?" + param);
+            JArray resultado = JArray.Parse(_last_navigation);
+            string traduzido = resultado.First.First.First.ToString();
+            traduzido = traduzido.Substring(traduzido.Length - 1, 1) == "'" ? traduzido.Substring(0, traduzido.Length - 1).Trim() : traduzido;
+            return traduzido;
+        }
+
+        public string Get_Traducao_Antigo(string texto_a_fonetizar)
         {
             //Regex R = new Regex("[<]textarea name=\"txtTranscription\".*?[|](.*?)[|]",RegexOptions.Multiline);
             //Regex R = new Regex("[|](.{1,})[|]", RegexOptions.Multiline);
