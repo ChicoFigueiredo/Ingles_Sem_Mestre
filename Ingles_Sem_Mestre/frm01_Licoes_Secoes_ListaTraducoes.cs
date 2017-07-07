@@ -71,28 +71,33 @@ namespace Ingles_Sem_Mestre
             if (e.KeyCode == Keys.F4)
             {
                 licoesDataGridView.Focus();
+                e.Handled = true;
             }
             else if (e.KeyCode == Keys.F5)
             {
                 tabControl_Licao.SelectedIndex = 0;
                 secaoDataGridView.Focus();
+                e.Handled = true;
             }
             else if (e.KeyCode == Keys.F6)
             {
                 tabControl_Licao.SelectedIndex = 1;
                 materia_PortuguesRichTextBox.Focus();
+                e.Handled = true;
             }
             else if (e.KeyCode == Keys.F7)
             {
                 tabControl_Licao.SelectedIndex = 0;
                 tabControl_Secao.SelectedIndex = 0;
                 lista_de_TraducoesDataGridView.Focus();
+                e.Handled = true;
             }
             else if (e.KeyCode == Keys.F8)
             {
                 tabControl_Licao.SelectedIndex = 0;
                 tabControl_Secao.SelectedIndex = 1;
                 materia_PortuguesRichTextBox1.Focus();
+                e.Handled = true;
             }
             else if (e.KeyCode == Keys.F9)
             {
@@ -100,6 +105,7 @@ namespace Ingles_Sem_Mestre
                 tabControl_Secao.SelectedIndex = 0;
                 tabControl_Lista_Traducao.SelectedIndex = 0;
                 inglesTextBox.Focus();
+                e.Handled = true;
             }
             else if (e.KeyCode == Keys.F10)
             {
@@ -107,36 +113,43 @@ namespace Ingles_Sem_Mestre
                 tabControl_Secao.SelectedIndex = 0;
                 tabControl_Lista_Traducao.SelectedIndex = 1;
                 materia_PortuguesRichTextBox2.Focus();
+                e.Handled = true;
             }
             else if (e.KeyCode == Keys.F12 || (e.KeyCode == Keys.S && e.Control == true))
             {
                 licoesBindingNavigatorSaveItem_Click(sender, e);
+                e.Handled = true;
             }
             else if (e.KeyCode == Keys.F11 || ((e.KeyCode == Keys.Add || e.KeyCode == Keys.Insert) && e.Control == true))
             {
                 licoesBindingNavigatorSaveItem_Click(sender, e);
                 lista_de_TraducoesBindingSource.AddNew();
                 inglesTextBox.Focus();
+                e.Handled = true;
             }
             else if ((e.KeyCode == Keys.Left || e.KeyCode == Keys.Up) && e.Control == true)
             {
                 lista_de_TraducoesBindingSource.MovePrevious();
                 inglesTextBox.Focus();
+                e.Handled = true;
             }
             else if ((e.KeyCode == Keys.Right || e.KeyCode == Keys.Down) && e.Control == true)
             {
                 lista_de_TraducoesBindingSource.MoveNext();
                 inglesTextBox.Focus();
+                e.Handled = true;
             }
             else if (e.KeyCode == Keys.PageUp && e.Control == true)
             {
                 lista_de_TraducoesBindingSource.MoveFirst();
                 inglesTextBox.Focus();
+                e.Handled = true;
             }
             else if (e.KeyCode == Keys.PageDown && e.Control == true)
             {
                 lista_de_TraducoesBindingSource.MoveLast();
                 inglesTextBox.Focus();
+                e.Handled = true;
             }
             else if (e.KeyCode == Keys.End && e.Control == true)
             {
@@ -147,10 +160,12 @@ namespace Ingles_Sem_Mestre
                 lista_de_TraducoesBindingSource.MoveLast();
                 lista_de_TraducoesBindingSource.MovePrevious();
                 inglesTextBox.Focus();
+                e.Handled = true;
             }
             else if (e.KeyCode == Keys.F3 || (e.KeyCode == Keys.Divide && e.Control == true))
             {
                 Ler_Ingles(inglesTextBox.Text);
+                e.Handled = true;
             }
             else if ((e.KeyCode == Keys.F && e.Control == true) || (e.KeyCode == Keys.Multiply && e.Control == true))
             {
@@ -158,14 +173,14 @@ namespace Ingles_Sem_Mestre
                 try
                 {
                     Ler_Ingles(C.Text);
+                    e.Handled = true;
                 }
                 catch(Exception Err)
                 {
                     Console.Write(Err.Message);
+                    e.Handled = true;
                 }
             }
-
-
         }
 
         private void Ler_Ingles(string texto)
