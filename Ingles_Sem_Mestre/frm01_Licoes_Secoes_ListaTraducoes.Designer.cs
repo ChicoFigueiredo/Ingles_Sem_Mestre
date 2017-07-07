@@ -269,7 +269,7 @@
             // inglesLabel
             // 
             inglesLabel.AutoSize = true;
-            inglesLabel.Location = new System.Drawing.Point(43, 9);
+            inglesLabel.Location = new System.Drawing.Point(43, 17);
             inglesLabel.Name = "inglesLabel";
             inglesLabel.Size = new System.Drawing.Size(38, 13);
             inglesLabel.TabIndex = 0;
@@ -278,7 +278,7 @@
             // traducaoLabel
             // 
             traducaoLabel.AutoSize = true;
-            traducaoLabel.Location = new System.Drawing.Point(25, 35);
+            traducaoLabel.Location = new System.Drawing.Point(25, 52);
             traducaoLabel.Name = "traducaoLabel";
             traducaoLabel.Size = new System.Drawing.Size(56, 13);
             traducaoLabel.TabIndex = 2;
@@ -287,7 +287,7 @@
             // foneticoLabel
             // 
             foneticoLabel.AutoSize = true;
-            foneticoLabel.Location = new System.Drawing.Point(30, 61);
+            foneticoLabel.Location = new System.Drawing.Point(30, 87);
             foneticoLabel.Name = "foneticoLabel";
             foneticoLabel.Size = new System.Drawing.Size(51, 13);
             foneticoLabel.TabIndex = 4;
@@ -296,7 +296,7 @@
             // transliteracaoLabel
             // 
             transliteracaoLabel.AutoSize = true;
-            transliteracaoLabel.Location = new System.Drawing.Point(4, 87);
+            transliteracaoLabel.Location = new System.Drawing.Point(4, 122);
             transliteracaoLabel.Name = "transliteracaoLabel";
             transliteracaoLabel.Size = new System.Drawing.Size(77, 13);
             transliteracaoLabel.TabIndex = 6;
@@ -976,7 +976,7 @@
             // 
             this.splitContainer5.Panel2.Controls.Add(this.tabControl_Lista_Traducao);
             this.splitContainer5.Size = new System.Drawing.Size(686, 537);
-            this.splitContainer5.SplitterDistance = 374;
+            this.splitContainer5.SplitterDistance = 341;
             this.splitContainer5.TabIndex = 0;
             // 
             // toolStripContainer3
@@ -990,11 +990,11 @@
             // 
             this.toolStripContainer3.ContentPanel.AutoScroll = true;
             this.toolStripContainer3.ContentPanel.Controls.Add(this.lista_de_TraducoesDataGridView);
-            this.toolStripContainer3.ContentPanel.Size = new System.Drawing.Size(686, 324);
+            this.toolStripContainer3.ContentPanel.Size = new System.Drawing.Size(686, 291);
             this.toolStripContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer3.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer3.Name = "toolStripContainer3";
-            this.toolStripContainer3.Size = new System.Drawing.Size(686, 374);
+            this.toolStripContainer3.Size = new System.Drawing.Size(686, 341);
             this.toolStripContainer3.TabIndex = 4;
             this.toolStripContainer3.Text = "toolStripContainer3";
             // 
@@ -1149,7 +1149,7 @@
             this.lista_de_TraducoesDataGridView.Location = new System.Drawing.Point(0, 0);
             this.lista_de_TraducoesDataGridView.Name = "lista_de_TraducoesDataGridView";
             this.lista_de_TraducoesDataGridView.RowHeadersWidth = 24;
-            this.lista_de_TraducoesDataGridView.Size = new System.Drawing.Size(686, 324);
+            this.lista_de_TraducoesDataGridView.Size = new System.Drawing.Size(686, 291);
             this.lista_de_TraducoesDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn6
@@ -1219,7 +1219,7 @@
             this.tabControl_Lista_Traducao.Location = new System.Drawing.Point(0, 0);
             this.tabControl_Lista_Traducao.Name = "tabControl_Lista_Traducao";
             this.tabControl_Lista_Traducao.SelectedIndex = 0;
-            this.tabControl_Lista_Traducao.Size = new System.Drawing.Size(686, 159);
+            this.tabControl_Lista_Traducao.Size = new System.Drawing.Size(686, 192);
             this.tabControl_Lista_Traducao.TabIndex = 0;
             // 
             // tabPage3
@@ -1236,7 +1236,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(678, 133);
+            this.tabPage3.Size = new System.Drawing.Size(678, 166);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Tradução (F9)";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1244,7 +1244,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 114);
+            this.label1.Location = new System.Drawing.Point(4, 150);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(639, 13);
             this.label1.TabIndex = 8;
@@ -1256,9 +1256,10 @@
             this.transliteracaoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.transliteracaoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lista_de_TraducoesBindingSource, "Transliteracao", true));
-            this.transliteracaoTextBox.Location = new System.Drawing.Point(87, 84);
+            this.transliteracaoTextBox.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.transliteracaoTextBox.Location = new System.Drawing.Point(87, 111);
             this.transliteracaoTextBox.Name = "transliteracaoTextBox";
-            this.transliteracaoTextBox.Size = new System.Drawing.Size(555, 20);
+            this.transliteracaoTextBox.Size = new System.Drawing.Size(555, 29);
             this.transliteracaoTextBox.TabIndex = 7;
             // 
             // foneticoTextBox
@@ -1266,9 +1267,10 @@
             this.foneticoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.foneticoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lista_de_TraducoesBindingSource, "Fonetico", true));
-            this.foneticoTextBox.Location = new System.Drawing.Point(87, 58);
+            this.foneticoTextBox.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.foneticoTextBox.Location = new System.Drawing.Point(87, 76);
             this.foneticoTextBox.Name = "foneticoTextBox";
-            this.foneticoTextBox.Size = new System.Drawing.Size(555, 20);
+            this.foneticoTextBox.Size = new System.Drawing.Size(555, 29);
             this.foneticoTextBox.TabIndex = 5;
             // 
             // traducaoTextBox
@@ -1276,9 +1278,10 @@
             this.traducaoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.traducaoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lista_de_TraducoesBindingSource, "Traducao", true));
-            this.traducaoTextBox.Location = new System.Drawing.Point(87, 32);
+            this.traducaoTextBox.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.traducaoTextBox.Location = new System.Drawing.Point(87, 41);
             this.traducaoTextBox.Name = "traducaoTextBox";
-            this.traducaoTextBox.Size = new System.Drawing.Size(555, 20);
+            this.traducaoTextBox.Size = new System.Drawing.Size(555, 29);
             this.traducaoTextBox.TabIndex = 3;
             // 
             // inglesTextBox
@@ -1286,9 +1289,10 @@
             this.inglesTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.inglesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lista_de_TraducoesBindingSource, "Ingles", true));
+            this.inglesTextBox.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inglesTextBox.Location = new System.Drawing.Point(87, 6);
             this.inglesTextBox.Name = "inglesTextBox";
-            this.inglesTextBox.Size = new System.Drawing.Size(555, 20);
+            this.inglesTextBox.Size = new System.Drawing.Size(555, 29);
             this.inglesTextBox.TabIndex = 1;
             this.inglesTextBox.TextChanged += new System.EventHandler(this.inglesTextBox_TextChanged);
             this.inglesTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inglesTextBox_KeyDown);
