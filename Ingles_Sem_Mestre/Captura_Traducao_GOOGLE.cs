@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 //https://api.datamarket.azure.com/Bing/MicrosoftTranslator/v1/Translate?To='pt'&From='en'&Text='bread'
 namespace Ingles_Sem_Mestre
 {
-    class Captura_Traducao_BING
+    class Captura_Traducao_GOOGLE
     {
         private WebClientX web = new WebClientX();
         private String _last_navigation = "";
@@ -21,9 +21,9 @@ namespace Ingles_Sem_Mestre
         const String site_req = "client=gtx&sl=en-US&tl=pt-BR&dt=t&q=";
         const String user = "fran.fig@gmail.com";
         const String pwd = "anQnvgVTDjgNz0MDIqonWSmn3y73GGcZ+QcXt/iIjpY";
-        
+        Regex Limpar_Lixo_Final = new Regex("[^\\w\\-]*$");
 
-        public Captura_Traducao_BING()
+        public Captura_Traducao_GOOGLE()
         {
             web.Encoding = Encoding.UTF8;
             //_last_navigation = web.DownloadString("http://upodn.com/");
@@ -35,7 +35,7 @@ namespace Ingles_Sem_Mestre
             _last_navigation = web.DownloadString(site  + "?" + param);
             JArray resultado = JArray.Parse(_last_navigation);
             string traduzido = resultado.First.First.First.ToString();
-            traduzido = traduzido.Substring(traduzido.Length - 1, 1) == "'" ? traduzido.Substring(0, traduzido.Length - 1).Trim() : traduzido;
+            traduzido = Limpar_Lixo_Final.Replace(traduzido.Substring(traduzido.Length - 1, 1) == "'" ? traduzido.Substring(0, traduzido.Length - 1).Trim() : traduzido,"");
             return traduzido;
         }
 
@@ -50,10 +50,7 @@ namespace Ingles_Sem_Mestre
 
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(_last_navigation);
-
-            String response = doc.SelectNodes("//*[name()='d:Text']/text()").Item(0).Value.Trim(); //WebUtility.HtmlDecode(R.Matches(_last_navigation)[0].Groups[1].Value.Trim());
-
-
+            String response = Limpar_Lixo_Final.Replace(doc.SelectNodes("//*[name()='d:Text']/text()").Item(0).Value.Trim(), ""); //WebUtility.HtmlDecode(R.Matches(_last_navigation)[0].Groups[1].Value.Trim());
             return response;
         }
     }

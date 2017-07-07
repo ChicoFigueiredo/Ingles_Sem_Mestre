@@ -188,8 +188,8 @@ namespace Ingles_Sem_Mestre
             Application.Exit();
         }
 
-        private Captura_Linguagem_Fonetica C = new Captura_Linguagem_Fonetica();
-        private Captura_Traducao_BING T = new Captura_Traducao_BING();
+        private Captura_Linguagem_Fonetica_PHOTRANSEDIT FoneticoPHOTRANSEDIT = new Captura_Linguagem_Fonetica_PHOTRANSEDIT();
+        private Captura_Traducao_GOOGLE TradutorGOOGLE = new Captura_Traducao_GOOGLE();
 
         private void inglesTextBox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -199,15 +199,15 @@ namespace Ingles_Sem_Mestre
                 {
                     Ler_Ingles(inglesTextBox.Text);
 
-                    traducaoTextBox.Text = T.Get_Traducao(inglesTextBox.Text);
-                    foneticoTextBox.Text = C.Get_Fonetico(inglesTextBox.Text);
+                    traducaoTextBox.Text = TradutorGOOGLE.Get_Traducao(inglesTextBox.Text);
+                    foneticoTextBox.Text = FoneticoPHOTRANSEDIT.Get_Fonetico(inglesTextBox.Text);
 
                 }
                 catch (Exception Err)
                 {
                     try
                     {
-                        foneticoTextBox.Text = C.Get_Fonetico(inglesTextBox.Text);
+                        foneticoTextBox.Text = FoneticoPHOTRANSEDIT.Get_Fonetico(inglesTextBox.Text);
                     }
                     catch (Exception Err2)
                     {
