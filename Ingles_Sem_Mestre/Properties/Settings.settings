@@ -10,5 +10,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=localhost;Initial Catalog=Ingles_sem_Mestre;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="Padrao_Backup" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Users\\franf\OneDrive\BACKUPs\Ingles_Sem_Mestre_{0}.bak</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

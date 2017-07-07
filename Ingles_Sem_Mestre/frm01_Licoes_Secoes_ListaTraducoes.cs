@@ -201,17 +201,22 @@ namespace Ingles_Sem_Mestre
 
                     traducaoTextBox.Text = TradutorGOOGLE.Get_Traducao(inglesTextBox.Text);
                     foneticoTextBox.Text = FoneticoPHOTRANSEDIT.Get_Fonetico(inglesTextBox.Text);
-
+                    e.SuppressKeyPress = true;
+                    e.Handled = true;
                 }
                 catch (Exception Err)
                 {
                     try
                     {
                         foneticoTextBox.Text = FoneticoPHOTRANSEDIT.Get_Fonetico(inglesTextBox.Text);
+                        e.SuppressKeyPress = true;
+                        e.Handled = true;
                     }
                     catch (Exception Err2)
                     {
                         foneticoTextBox.Text = "<<" + Err.Message + " at " + Err.Source + " / " + Err2.Message + " at " + Err2.Source + ">>";
+                        e.SuppressKeyPress = true;
+                        e.Handled = true;
                     }
                 }
                 
@@ -284,6 +289,11 @@ namespace Ingles_Sem_Mestre
         private void txtBusca_Secoes_KeyUp(object sender, KeyEventArgs e)
         {
 
+        }
+
+        private void toolStripButton_Backup_Click(object sender, EventArgs e)
+        {
+            SQL_Utilities.Backup();
         }
     }
 }

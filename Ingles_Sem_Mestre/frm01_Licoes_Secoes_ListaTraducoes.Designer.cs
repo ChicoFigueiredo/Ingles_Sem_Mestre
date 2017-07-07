@@ -70,6 +70,7 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnSalvar_Alteracoes = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripComboBox_Vozes = new System.Windows.Forms.ToolStripComboBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -130,6 +131,7 @@
             this.toolStripTextBox3 = new System.Windows.Forms.ToolStripTextBox();
             this.tabControl_Lista_Traducao = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.transliteracaoTextBox = new System.Windows.Forms.TextBox();
             this.foneticoTextBox = new System.Windows.Forms.TextBox();
             this.traducaoTextBox = new System.Windows.Forms.TextBox();
@@ -147,8 +149,7 @@
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
             this.LicoesTimer = new System.Windows.Forms.Timer(this.components);
             this.timerSecoes = new System.Windows.Forms.Timer(this.components);
-            this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.toolStripButton_Backup = new System.Windows.Forms.ToolStripButton();
             numeroLabel = new System.Windows.Forms.Label();
             tituloLabel = new System.Windows.Forms.Label();
             materia_PortuguesLabel = new System.Windows.Forms.Label();
@@ -375,8 +376,8 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de itens";
             // 
             // bindingNavigatorDeleteItem
@@ -557,7 +558,8 @@
             this.btnSalvar_Alteracoes,
             this.toolStripButton15,
             this.toolStripLabel6,
-            this.toolStripComboBox_Vozes});
+            this.toolStripComboBox_Vozes,
+            this.toolStripButton_Backup});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(1235, 25);
@@ -581,6 +583,12 @@
             this.toolStripButton15.Size = new System.Drawing.Size(46, 22);
             this.toolStripButton15.Text = "&Sair";
             this.toolStripButton15.Click += new System.EventHandler(this.toolStripButton15_Click);
+            // 
+            // toolStripLabel6
+            // 
+            this.toolStripLabel6.Name = "toolStripLabel6";
+            this.toolStripLabel6.Size = new System.Drawing.Size(69, 22);
+            this.toolStripLabel6.Text = "Voz/Lingua:";
             // 
             // toolStripComboBox_Vozes
             // 
@@ -763,8 +771,8 @@
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(35, 22);
-            this.toolStripLabel2.Text = "of {0}";
+            this.toolStripLabel2.Size = new System.Drawing.Size(37, 22);
+            this.toolStripLabel2.Text = "de {0}";
             this.toolStripLabel2.ToolTipText = "Número total de itens";
             // 
             // toolStripButton2
@@ -1021,7 +1029,7 @@
             this.bindingNavigator2.MovePreviousItem = this.toolStripButton11;
             this.bindingNavigator2.Name = "bindingNavigator2";
             this.bindingNavigator2.PositionItem = this.toolStripTextBox2;
-            this.bindingNavigator2.Size = new System.Drawing.Size(278, 25);
+            this.bindingNavigator2.Size = new System.Drawing.Size(280, 25);
             this.bindingNavigator2.TabIndex = 0;
             this.bindingNavigator2.Text = "bindingNavigator2";
             // 
@@ -1043,8 +1051,8 @@
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(35, 22);
-            this.toolStripLabel4.Text = "of {0}";
+            this.toolStripLabel4.Size = new System.Drawing.Size(37, 22);
+            this.toolStripLabel4.Text = "de {0}";
             this.toolStripLabel4.ToolTipText = "Número total de itens";
             // 
             // toolStripButton9
@@ -1233,6 +1241,16 @@
             this.tabPage3.Text = "Tradução (F9)";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(639, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "[Ctrl]+[Enter] em Inglês - Leitura, tradução e fonético /  [Ctrl]+[F] ou [Ctrl]+[" +
+    "*] -> Leitura em qualquer controle / [Ctrl]+[+] -> Salva e Novo";
+            // 
             // transliteracaoTextBox
             // 
             this.transliteracaoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1282,7 +1300,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(541, 133);
+            this.tabPage4.Size = new System.Drawing.Size(678, 133);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Matéria da Tradução (F10)";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1293,7 +1311,7 @@
             this.materia_PortuguesRichTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materia_PortuguesRichTextBox2.Location = new System.Drawing.Point(3, 3);
             this.materia_PortuguesRichTextBox2.Name = "materia_PortuguesRichTextBox2";
-            this.materia_PortuguesRichTextBox2.Size = new System.Drawing.Size(535, 127);
+            this.materia_PortuguesRichTextBox2.Size = new System.Drawing.Size(672, 127);
             this.materia_PortuguesRichTextBox2.TabIndex = 1;
             this.materia_PortuguesRichTextBox2.Text = "";
             // 
@@ -1304,7 +1322,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(555, 496);
+            this.tabPage2.Size = new System.Drawing.Size(692, 543);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Matéria da Seção (F8)";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1317,7 +1335,7 @@
             this.materia_PortuguesRichTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.secaoBindingSource, "Materia_Portugues", true));
             this.materia_PortuguesRichTextBox1.Location = new System.Drawing.Point(6, 23);
             this.materia_PortuguesRichTextBox1.Name = "materia_PortuguesRichTextBox1";
-            this.materia_PortuguesRichTextBox1.Size = new System.Drawing.Size(543, 467);
+            this.materia_PortuguesRichTextBox1.Size = new System.Drawing.Size(680, 514);
             this.materia_PortuguesRichTextBox1.TabIndex = 1;
             this.materia_PortuguesRichTextBox1.Text = "";
             // 
@@ -1328,7 +1346,7 @@
             this.tabMateria_Licao.Location = new System.Drawing.Point(4, 22);
             this.tabMateria_Licao.Name = "tabMateria_Licao";
             this.tabMateria_Licao.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMateria_Licao.Size = new System.Drawing.Size(832, 557);
+            this.tabMateria_Licao.Size = new System.Drawing.Size(969, 604);
             this.tabMateria_Licao.TabIndex = 0;
             this.tabMateria_Licao.Text = "Matéria da Lição (F6)";
             this.tabMateria_Licao.UseVisualStyleBackColor = true;
@@ -1391,21 +1409,14 @@
             // 
             this.timerSecoes.Interval = 500;
             // 
-            // toolStripLabel6
+            // toolStripButton_Backup
             // 
-            this.toolStripLabel6.Name = "toolStripLabel6";
-            this.toolStripLabel6.Size = new System.Drawing.Size(69, 22);
-            this.toolStripLabel6.Text = "Voz/Lingua:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 114);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(639, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "[Ctrl]+[Enter] em Inglês - Leitura, tradução e fonético /  [Ctrl]+[F] ou [Ctrl]+[" +
-    "*] -> Leitura em qualquer controle / [Ctrl]+[+] -> Salva e Novo";
+            this.toolStripButton_Backup.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Backup.Image")));
+            this.toolStripButton_Backup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_Backup.Name = "toolStripButton_Backup";
+            this.toolStripButton_Backup.Size = new System.Drawing.Size(102, 22);
+            this.toolStripButton_Backup.Text = "Backup Dados";
+            this.toolStripButton_Backup.Click += new System.EventHandler(this.toolStripButton_Backup_Click);
             // 
             // frm01_Licoes_Secoes_ListaTraducoes
             // 
@@ -1415,6 +1426,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.statusStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "frm01_Licoes_Secoes_ListaTraducoes";
             this.Text = "Inglês sem Mestre - Lições -> Seções -> Lista de Traduções";
@@ -1616,5 +1628,6 @@
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox_Vozes;
         private System.Windows.Forms.ToolStripLabel toolStripLabel6;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripButton toolStripButton_Backup;
     }
 }

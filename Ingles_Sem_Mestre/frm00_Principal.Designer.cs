@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm00_Principal));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnLicoes_Secoes_ListaTraducao = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -77,7 +78,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(211, 110);
             this.button2.TabIndex = 2;
-            this.button2.Text = "BAKCUP";
+            this.button2.Text = "SQL Backup";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -93,6 +94,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 587);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm00_Principal";
             this.Text = "Inglês Sem Mestre - Principal";
             this.Load += new System.EventHandler(this.frm00_Principal_Load);

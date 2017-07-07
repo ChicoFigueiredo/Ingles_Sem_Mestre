@@ -32,5 +32,14 @@ namespace Ingles_Sem_Mestre.Properties {
                 return ((string)(this["INGLES_SEM_MESTREConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\\\franf\\OneDrive\\BACKUPs\\Ingles_Sem_Mestre_{0}.bak")]
+        public string Padrao_Backup {
+            get {
+                return ((string)(this["Padrao_Backup"]));
+            }
+        }
     }
 }
