@@ -158,6 +158,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SQL\Ingles_Sem_Mestre_2017_10_06_20_01_05.bak" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
