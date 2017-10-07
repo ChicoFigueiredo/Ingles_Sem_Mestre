@@ -31,11 +31,12 @@ namespace Ingles_Sem_Mestre
 
         public string Get_Traducao(string texto_a_fonetizar)
         {
+            texto_a_fonetizar = texto_a_fonetizar.Replace(".", ".,").Replace("?", "?,").Replace("!", "!,");
             string param = site_req + Uri.EscapeUriString(texto_a_fonetizar) + "'";
             _last_navigation = web.DownloadString(site  + "?" + param);
             JArray resultado = JArray.Parse(_last_navigation);
             string traduzido = resultado.First.First.First.ToString();
-            traduzido = Limpar_Lixo_Final.Replace(traduzido.Substring(traduzido.Length - 1, 1) == "'" ? traduzido.Substring(0, traduzido.Length - 1).Trim() : traduzido,"");
+            traduzido = Limpar_Lixo_Final.Replace(traduzido.Substring(traduzido.Length - 1, 1) == "'" ? traduzido.Substring(0, traduzido.Length - 1).Trim() : traduzido,"").Replace(".,", ".").Replace("?,", "?").Replace("!,","!");
             return traduzido;
         }
 

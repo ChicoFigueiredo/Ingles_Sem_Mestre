@@ -34,11 +34,7 @@ namespace Ingles_Sem_Mestre
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string SQL_Command = String.Format("BACKUP DATABASE [INGLES_SEM_MESTRE] TO  DISK = N'C:\\Users\\franf\\OneDrive\\BACKUPs\\Ingles_Sem_Mestre_{0}.bak' WITH NOFORMAT, NOINIT,  NAME = N'INGLES_SEM_MESTRE-Completo Banco de Dados Backup', SKIP, NOREWIND, NOUNLOAD, COMPRESSION,  STATS = 10",DateTime.Now.ToString("yyyy_MM_dd_hh_mm"));
-            SqlConnection Conn = new SqlConnection(Properties.Settings.Default.INGLES_SEM_MESTREConnectionString);
-            Conn.Open();
-            SqlCommand C = new SqlCommand(SQL_Command, Conn);
-            C.ExecuteNonQuery();
+            SQL_Utilities.Backup();
         }
 
         private void licoesBindingNavigatorSaveItem_Click(object sender, EventArgs e)

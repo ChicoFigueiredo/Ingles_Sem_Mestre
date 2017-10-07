@@ -39,12 +39,6 @@
             System.Windows.Forms.Label foneticoLabel;
             System.Windows.Forms.Label transliteracaoLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm01_Licoes_Secoes_ListaTraducoes));
-            this.iNGLES_SEM_MESTREDataSet = new Ingles_Sem_Mestre.INGLES_SEM_MESTREDataSet();
-            this.licoesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.licoesTableAdapter = new Ingles_Sem_Mestre.INGLES_SEM_MESTREDataSetTableAdapters.LicoesTableAdapter();
-            this.tableAdapterManager = new Ingles_Sem_Mestre.INGLES_SEM_MESTREDataSetTableAdapters.TableAdapterManager();
-            this.lista_de_TraducoesTableAdapter = new Ingles_Sem_Mestre.INGLES_SEM_MESTREDataSetTableAdapters.Lista_de_TraducoesTableAdapter();
-            this.secaoTableAdapter = new Ingles_Sem_Mestre.INGLES_SEM_MESTREDataSetTableAdapters.SecaoTableAdapter();
             this.licoesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -60,8 +54,6 @@
             this.licoesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.licoesDataGridView = new System.Windows.Forms.DataGridView();
             this.Grupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -72,6 +64,10 @@
             this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripComboBox_Vozes = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripRateVoice = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripRateVoiceSlow = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripButton_Backup = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tituloTextBox = new System.Windows.Forms.TextBox();
@@ -95,8 +91,6 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.secaoDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.txtBusca_Secoes = new System.Windows.Forms.ToolStripTextBox();
@@ -121,14 +115,9 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
             this.lista_de_TraducoesDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox3 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLessonSearch = new System.Windows.Forms.ToolStripTextBox();
             this.tabControl_Lista_Traducao = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
@@ -149,7 +138,35 @@
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
             this.LicoesTimer = new System.Windows.Forms.Timer(this.components);
             this.timerSecoes = new System.Windows.Forms.Timer(this.components);
-            this.toolStripButton_Backup = new System.Windows.Forms.ToolStripButton();
+            this.timerTraducoes = new System.Windows.Forms.Timer(this.components);
+            this.toolStripLabel8 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripVelocidadeInglesPassivo = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLerPortugues = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripVelocidadePortugues = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripVozPortugues = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripButtonLerLista = new System.Windows.Forms.ToolStripButton();
+            this.licoesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iNGLES_SEM_MESTREDataSet = new Ingles_Sem_Mestre.INGLES_SEM_MESTREDataSet();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroSecaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tituloSecaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materiaPortuguesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroSecaoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materiaPortuguesDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licoesTableAdapter = new Ingles_Sem_Mestre.INGLES_SEM_MESTREDataSetTableAdapters.LicoesTableAdapter();
+            this.tableAdapterManager = new Ingles_Sem_Mestre.INGLES_SEM_MESTREDataSetTableAdapters.TableAdapterManager();
+            this.lista_de_TraducoesTableAdapter = new Ingles_Sem_Mestre.INGLES_SEM_MESTREDataSetTableAdapters.Lista_de_TraducoesTableAdapter();
+            this.secaoTableAdapter = new Ingles_Sem_Mestre.INGLES_SEM_MESTREDataSetTableAdapters.SecaoTableAdapter();
             numeroLabel = new System.Windows.Forms.Label();
             tituloLabel = new System.Windows.Forms.Label();
             materia_PortuguesLabel = new System.Windows.Forms.Label();
@@ -159,8 +176,6 @@
             traducaoLabel = new System.Windows.Forms.Label();
             foneticoLabel = new System.Windows.Forms.Label();
             transliteracaoLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.iNGLES_SEM_MESTREDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.licoesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.licoesBindingNavigator)).BeginInit();
             this.licoesBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.licoesDataGridView)).BeginInit();
@@ -217,6 +232,8 @@
             this.tabPage4.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabMateria_Licao.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.licoesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iNGLES_SEM_MESTREDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // numeroLabel
@@ -302,37 +319,6 @@
             transliteracaoLabel.TabIndex = 6;
             transliteracaoLabel.Text = "Transliteracao:";
             // 
-            // iNGLES_SEM_MESTREDataSet
-            // 
-            this.iNGLES_SEM_MESTREDataSet.DataSetName = "INGLES_SEM_MESTREDataSet";
-            this.iNGLES_SEM_MESTREDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // licoesBindingSource
-            // 
-            this.licoesBindingSource.DataMember = "Licoes";
-            this.licoesBindingSource.DataSource = this.iNGLES_SEM_MESTREDataSet;
-            this.licoesBindingSource.Sort = "Grupo ASC, Numero DESC";
-            // 
-            // licoesTableAdapter
-            // 
-            this.licoesTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.LicoesTableAdapter = this.licoesTableAdapter;
-            this.tableAdapterManager.Lista_de_TraducoesTableAdapter = this.lista_de_TraducoesTableAdapter;
-            this.tableAdapterManager.SecaoTableAdapter = this.secaoTableAdapter;
-            this.tableAdapterManager.UpdateOrder = Ingles_Sem_Mestre.INGLES_SEM_MESTREDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // lista_de_TraducoesTableAdapter
-            // 
-            this.lista_de_TraducoesTableAdapter.ClearBeforeFill = true;
-            // 
-            // secaoTableAdapter
-            // 
-            this.secaoTableAdapter.ClearBeforeFill = true;
-            // 
             // licoesBindingNavigator
             // 
             this.licoesBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
@@ -386,7 +372,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Excluir";
             // 
             // bindingNavigatorMoveFirstItem
@@ -454,7 +440,7 @@
             this.licoesBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.licoesBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("licoesBindingNavigatorSaveItem.Image")));
             this.licoesBindingNavigatorSaveItem.Name = "licoesBindingNavigatorSaveItem";
-            this.licoesBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 20);
+            this.licoesBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.licoesBindingNavigatorSaveItem.Text = "Salvar Dados";
             this.licoesBindingNavigatorSaveItem.Click += new System.EventHandler(this.licoesBindingNavigatorSaveItem_Click);
             // 
@@ -483,20 +469,6 @@
             this.Grupo.HeaderText = "G";
             this.Grupo.Name = "Grupo";
             this.Grupo.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Numero";
-            this.dataGridViewTextBoxColumn1.HeaderText = "#";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 39;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Titulo";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Titulo";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 58;
             // 
             // toolStripContainer1
             // 
@@ -548,7 +520,7 @@
             // 
             this.statusStrip1.Location = new System.Drawing.Point(0, 715);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1235, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1346, 22);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -559,10 +531,13 @@
             this.toolStripButton15,
             this.toolStripLabel6,
             this.toolStripComboBox_Vozes,
+            this.toolStripLabel7,
+            this.toolStripRateVoice,
+            this.toolStripRateVoiceSlow,
             this.toolStripButton_Backup});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(1235, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(1346, 25);
             this.toolStrip2.TabIndex = 5;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -595,6 +570,122 @@
             this.toolStripComboBox_Vozes.Name = "toolStripComboBox_Vozes";
             this.toolStripComboBox_Vozes.Size = new System.Drawing.Size(200, 25);
             // 
+            // toolStripLabel7
+            // 
+            this.toolStripLabel7.Name = "toolStripLabel7";
+            this.toolStripLabel7.Size = new System.Drawing.Size(67, 22);
+            this.toolStripLabel7.Text = "Velocidade:";
+            // 
+            // toolStripRateVoice
+            // 
+            this.toolStripRateVoice.AutoCompleteCustomSource.AddRange(new string[] {
+            "-10",
+            "-9",
+            "-8",
+            "-7",
+            "-6",
+            "-5",
+            "-4",
+            "-3",
+            "-2",
+            "-1",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.toolStripRateVoice.Items.AddRange(new object[] {
+            "-10",
+            "-9",
+            "-8",
+            "-7",
+            "-6",
+            "-5",
+            "-4",
+            "-3",
+            "-2",
+            "-1",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.toolStripRateVoice.Name = "toolStripRateVoice";
+            this.toolStripRateVoice.Size = new System.Drawing.Size(75, 25);
+            this.toolStripRateVoice.Text = "-2";
+            this.toolStripRateVoice.SelectedIndexChanged += new System.EventHandler(this.toolStripRateVoice_SelectedIndexChanged);
+            // 
+            // toolStripRateVoiceSlow
+            // 
+            this.toolStripRateVoiceSlow.AutoCompleteCustomSource.AddRange(new string[] {
+            "-10",
+            "-9",
+            "-8",
+            "-7",
+            "-6",
+            "-5",
+            "-4",
+            "-3",
+            "-2",
+            "-1",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.toolStripRateVoiceSlow.Items.AddRange(new object[] {
+            "-10",
+            "-9",
+            "-8",
+            "-7",
+            "-6",
+            "-5",
+            "-4",
+            "-3",
+            "-2",
+            "-1",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.toolStripRateVoiceSlow.Name = "toolStripRateVoiceSlow";
+            this.toolStripRateVoiceSlow.Size = new System.Drawing.Size(75, 25);
+            this.toolStripRateVoiceSlow.Text = "-8";
+            // 
+            // toolStripButton_Backup
+            // 
+            this.toolStripButton_Backup.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Backup.Image")));
+            this.toolStripButton_Backup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_Backup.Name = "toolStripButton_Backup";
+            this.toolStripButton_Backup.Size = new System.Drawing.Size(102, 22);
+            this.toolStripButton_Backup.Text = "Backup Dados";
+            this.toolStripButton_Backup.Click += new System.EventHandler(this.toolStripButton_Backup_Click);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -610,7 +701,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1235, 690);
+            this.splitContainer1.Size = new System.Drawing.Size(1346, 690);
             this.splitContainer1.SplitterDistance = 254;
             this.splitContainer1.TabIndex = 6;
             // 
@@ -634,7 +725,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tabControl_Licao);
-            this.splitContainer2.Size = new System.Drawing.Size(977, 690);
+            this.splitContainer2.Size = new System.Drawing.Size(1088, 690);
             this.splitContainer2.SplitterDistance = 55;
             this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 0;
@@ -646,7 +737,7 @@
             this.tituloTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.licoesBindingSource, "Titulo", true));
             this.tituloTextBox.Location = new System.Drawing.Point(54, 29);
             this.tituloTextBox.Name = "tituloTextBox";
-            this.tituloTextBox.Size = new System.Drawing.Size(911, 20);
+            this.tituloTextBox.Size = new System.Drawing.Size(1022, 20);
             this.tituloTextBox.TabIndex = 3;
             // 
             // numeroTextBox
@@ -665,7 +756,7 @@
             this.tabControl_Licao.Location = new System.Drawing.Point(0, 0);
             this.tabControl_Licao.Name = "tabControl_Licao";
             this.tabControl_Licao.SelectedIndex = 0;
-            this.tabControl_Licao.Size = new System.Drawing.Size(977, 630);
+            this.tabControl_Licao.Size = new System.Drawing.Size(1088, 630);
             this.tabControl_Licao.TabIndex = 0;
             // 
             // tabSecoes
@@ -674,7 +765,7 @@
             this.tabSecoes.Location = new System.Drawing.Point(4, 22);
             this.tabSecoes.Name = "tabSecoes";
             this.tabSecoes.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSecoes.Size = new System.Drawing.Size(969, 604);
+            this.tabSecoes.Size = new System.Drawing.Size(1080, 604);
             this.tabSecoes.TabIndex = 1;
             this.tabSecoes.Text = "Seções (F5)";
             this.tabSecoes.UseVisualStyleBackColor = true;
@@ -694,7 +785,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.splitContainer4);
-            this.splitContainer3.Size = new System.Drawing.Size(963, 598);
+            this.splitContainer3.Size = new System.Drawing.Size(1074, 598);
             this.splitContainer3.SplitterDistance = 259;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -869,21 +960,6 @@
             this.secaoDataGridView.TabIndex = 0;
             this.secaoDataGridView.Leave += new System.EventHandler(this.secaoDataGridView_Leave);
             // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Numero_Secao";
-            this.dataGridViewTextBoxColumn4.HeaderText = "# S";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 49;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Titulo_Secao";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Título";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 60;
-            // 
             // toolStrip3
             // 
             this.toolStrip3.Dock = System.Windows.Forms.DockStyle.None;
@@ -924,7 +1000,7 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.tabControl_Secao);
-            this.splitContainer4.Size = new System.Drawing.Size(700, 598);
+            this.splitContainer4.Size = new System.Drawing.Size(811, 598);
             this.splitContainer4.SplitterDistance = 25;
             this.splitContainer4.TabIndex = 0;
             // 
@@ -935,7 +1011,7 @@
             this.titulo_SecaoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.secaoBindingSource, "Titulo_Secao", true));
             this.titulo_SecaoTextBox.Location = new System.Drawing.Point(98, 3);
             this.titulo_SecaoTextBox.Name = "titulo_SecaoTextBox";
-            this.titulo_SecaoTextBox.Size = new System.Drawing.Size(597, 20);
+            this.titulo_SecaoTextBox.Size = new System.Drawing.Size(708, 20);
             this.titulo_SecaoTextBox.TabIndex = 1;
             // 
             // tabControl_Secao
@@ -946,7 +1022,7 @@
             this.tabControl_Secao.Location = new System.Drawing.Point(0, 0);
             this.tabControl_Secao.Name = "tabControl_Secao";
             this.tabControl_Secao.SelectedIndex = 0;
-            this.tabControl_Secao.Size = new System.Drawing.Size(700, 569);
+            this.tabControl_Secao.Size = new System.Drawing.Size(811, 569);
             this.tabControl_Secao.TabIndex = 0;
             // 
             // tabPage1
@@ -955,7 +1031,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(692, 543);
+            this.tabPage1.Size = new System.Drawing.Size(803, 543);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Lista de Traduções (F7)";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -975,7 +1051,7 @@
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.tabControl_Lista_Traducao);
-            this.splitContainer5.Size = new System.Drawing.Size(686, 537);
+            this.splitContainer5.Size = new System.Drawing.Size(797, 537);
             this.splitContainer5.SplitterDistance = 341;
             this.splitContainer5.TabIndex = 0;
             // 
@@ -990,11 +1066,11 @@
             // 
             this.toolStripContainer3.ContentPanel.AutoScroll = true;
             this.toolStripContainer3.ContentPanel.Controls.Add(this.lista_de_TraducoesDataGridView);
-            this.toolStripContainer3.ContentPanel.Size = new System.Drawing.Size(686, 291);
+            this.toolStripContainer3.ContentPanel.Size = new System.Drawing.Size(797, 291);
             this.toolStripContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer3.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer3.Name = "toolStripContainer3";
-            this.toolStripContainer3.Size = new System.Drawing.Size(686, 341);
+            this.toolStripContainer3.Size = new System.Drawing.Size(797, 341);
             this.toolStripContainer3.TabIndex = 4;
             this.toolStripContainer3.Text = "toolStripContainer3";
             // 
@@ -1047,6 +1123,7 @@
             this.lista_de_TraducoesBindingSource.AllowNew = true;
             this.lista_de_TraducoesBindingSource.DataMember = "FK_Lista_de_Traducoes_Secao";
             this.lista_de_TraducoesBindingSource.DataSource = this.secaoBindingSource;
+            this.lista_de_TraducoesBindingSource.CurrentChanged += new System.EventHandler(this.lista_de_TraducoesBindingSource_CurrentChanged);
             // 
             // toolStripLabel4
             // 
@@ -1149,54 +1226,25 @@
             this.lista_de_TraducoesDataGridView.Location = new System.Drawing.Point(0, 0);
             this.lista_de_TraducoesDataGridView.Name = "lista_de_TraducoesDataGridView";
             this.lista_de_TraducoesDataGridView.RowHeadersWidth = 24;
-            this.lista_de_TraducoesDataGridView.Size = new System.Drawing.Size(686, 291);
+            this.lista_de_TraducoesDataGridView.Size = new System.Drawing.Size(797, 291);
             this.lista_de_TraducoesDataGridView.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Numero_Lista_de_Traducoes";
-            this.dataGridViewTextBoxColumn6.HeaderText = "#";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 39;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Ingles";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Ingles";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Traducao";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Traducao";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 78;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Fonetico";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Fonetico";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 73;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Transliteracao";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Transliteracao";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 99;
             // 
             // toolStrip4
             // 
             this.toolStrip4.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel5,
-            this.toolStripTextBox3});
+            this.toolStripLessonSearch,
+            this.toolStripSeparator7,
+            this.toolStripLabel8,
+            this.toolStripVelocidadeInglesPassivo,
+            this.toolStripLerPortugues,
+            this.toolStripVelocidadePortugues,
+            this.toolStripVozPortugues,
+            this.toolStripButtonLerLista});
             this.toolStrip4.Location = new System.Drawing.Point(3, 0);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(205, 25);
+            this.toolStrip4.Size = new System.Drawing.Size(705, 25);
             this.toolStrip4.TabIndex = 0;
             // 
             // toolStripLabel5
@@ -1205,10 +1253,13 @@
             this.toolStripLabel5.Size = new System.Drawing.Size(41, 22);
             this.toolStripLabel5.Text = "Busca:";
             // 
-            // toolStripTextBox3
+            // toolStripLessonSearch
             // 
-            this.toolStripTextBox3.Name = "toolStripTextBox3";
-            this.toolStripTextBox3.Size = new System.Drawing.Size(150, 25);
+            this.toolStripLessonSearch.Name = "toolStripLessonSearch";
+            this.toolStripLessonSearch.Size = new System.Drawing.Size(100, 25);
+            this.toolStripLessonSearch.Leave += new System.EventHandler(this.toolStripLessonSearch_Leave);
+            this.toolStripLessonSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripLessonSearch_KeyDown);
+            this.toolStripLessonSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.toolStripLessonSearch_KeyUp);
             // 
             // tabControl_Lista_Traducao
             // 
@@ -1219,7 +1270,7 @@
             this.tabControl_Lista_Traducao.Location = new System.Drawing.Point(0, 0);
             this.tabControl_Lista_Traducao.Name = "tabControl_Lista_Traducao";
             this.tabControl_Lista_Traducao.SelectedIndex = 0;
-            this.tabControl_Lista_Traducao.Size = new System.Drawing.Size(686, 192);
+            this.tabControl_Lista_Traducao.Size = new System.Drawing.Size(797, 192);
             this.tabControl_Lista_Traducao.TabIndex = 0;
             // 
             // tabPage3
@@ -1236,7 +1287,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(678, 166);
+            this.tabPage3.Size = new System.Drawing.Size(789, 166);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Tradução (F9)";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1259,7 +1310,7 @@
             this.transliteracaoTextBox.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transliteracaoTextBox.Location = new System.Drawing.Point(87, 111);
             this.transliteracaoTextBox.Name = "transliteracaoTextBox";
-            this.transliteracaoTextBox.Size = new System.Drawing.Size(555, 29);
+            this.transliteracaoTextBox.Size = new System.Drawing.Size(666, 29);
             this.transliteracaoTextBox.TabIndex = 7;
             // 
             // foneticoTextBox
@@ -1270,7 +1321,7 @@
             this.foneticoTextBox.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.foneticoTextBox.Location = new System.Drawing.Point(87, 76);
             this.foneticoTextBox.Name = "foneticoTextBox";
-            this.foneticoTextBox.Size = new System.Drawing.Size(555, 29);
+            this.foneticoTextBox.Size = new System.Drawing.Size(666, 29);
             this.foneticoTextBox.TabIndex = 5;
             // 
             // traducaoTextBox
@@ -1281,7 +1332,7 @@
             this.traducaoTextBox.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.traducaoTextBox.Location = new System.Drawing.Point(87, 41);
             this.traducaoTextBox.Name = "traducaoTextBox";
-            this.traducaoTextBox.Size = new System.Drawing.Size(555, 29);
+            this.traducaoTextBox.Size = new System.Drawing.Size(666, 29);
             this.traducaoTextBox.TabIndex = 3;
             // 
             // inglesTextBox
@@ -1292,7 +1343,7 @@
             this.inglesTextBox.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inglesTextBox.Location = new System.Drawing.Point(87, 6);
             this.inglesTextBox.Name = "inglesTextBox";
-            this.inglesTextBox.Size = new System.Drawing.Size(555, 29);
+            this.inglesTextBox.Size = new System.Drawing.Size(666, 29);
             this.inglesTextBox.TabIndex = 1;
             this.inglesTextBox.TextChanged += new System.EventHandler(this.inglesTextBox_TextChanged);
             this.inglesTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.inglesTextBox_KeyDown);
@@ -1304,7 +1355,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(678, 133);
+            this.tabPage4.Size = new System.Drawing.Size(789, 166);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Matéria da Tradução (F10)";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1315,7 +1366,7 @@
             this.materia_PortuguesRichTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materia_PortuguesRichTextBox2.Location = new System.Drawing.Point(3, 3);
             this.materia_PortuguesRichTextBox2.Name = "materia_PortuguesRichTextBox2";
-            this.materia_PortuguesRichTextBox2.Size = new System.Drawing.Size(672, 127);
+            this.materia_PortuguesRichTextBox2.Size = new System.Drawing.Size(783, 160);
             this.materia_PortuguesRichTextBox2.TabIndex = 1;
             this.materia_PortuguesRichTextBox2.Text = "";
             // 
@@ -1326,7 +1377,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(692, 543);
+            this.tabPage2.Size = new System.Drawing.Size(803, 543);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Matéria da Seção (F8)";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1339,7 +1390,7 @@
             this.materia_PortuguesRichTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.secaoBindingSource, "Materia_Portugues", true));
             this.materia_PortuguesRichTextBox1.Location = new System.Drawing.Point(6, 23);
             this.materia_PortuguesRichTextBox1.Name = "materia_PortuguesRichTextBox1";
-            this.materia_PortuguesRichTextBox1.Size = new System.Drawing.Size(680, 514);
+            this.materia_PortuguesRichTextBox1.Size = new System.Drawing.Size(791, 514);
             this.materia_PortuguesRichTextBox1.TabIndex = 1;
             this.materia_PortuguesRichTextBox1.Text = "";
             // 
@@ -1350,7 +1401,7 @@
             this.tabMateria_Licao.Location = new System.Drawing.Point(4, 22);
             this.tabMateria_Licao.Name = "tabMateria_Licao";
             this.tabMateria_Licao.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMateria_Licao.Size = new System.Drawing.Size(969, 604);
+            this.tabMateria_Licao.Size = new System.Drawing.Size(1080, 604);
             this.tabMateria_Licao.TabIndex = 0;
             this.tabMateria_Licao.Text = "Matéria da Lição (F6)";
             this.tabMateria_Licao.UseVisualStyleBackColor = true;
@@ -1363,7 +1414,7 @@
             this.materia_PortuguesRichTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.licoesBindingSource, "Materia_Portugues", true));
             this.materia_PortuguesRichTextBox.Location = new System.Drawing.Point(11, 19);
             this.materia_PortuguesRichTextBox.Name = "materia_PortuguesRichTextBox";
-            this.materia_PortuguesRichTextBox.Size = new System.Drawing.Size(839, 532);
+            this.materia_PortuguesRichTextBox.Size = new System.Drawing.Size(950, 532);
             this.materia_PortuguesRichTextBox.TabIndex = 1;
             this.materia_PortuguesRichTextBox.Text = "";
             // 
@@ -1413,20 +1464,291 @@
             // 
             this.timerSecoes.Interval = 500;
             // 
-            // toolStripButton_Backup
+            // timerTraducoes
             // 
-            this.toolStripButton_Backup.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton_Backup.Image")));
-            this.toolStripButton_Backup.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_Backup.Name = "toolStripButton_Backup";
-            this.toolStripButton_Backup.Size = new System.Drawing.Size(102, 22);
-            this.toolStripButton_Backup.Text = "Backup Dados";
-            this.toolStripButton_Backup.Click += new System.EventHandler(this.toolStripButton_Backup_Click);
+            this.timerTraducoes.Interval = 500;
+            this.timerTraducoes.Tick += new System.EventHandler(this.timerTraducoes_Tick);
+            // 
+            // toolStripLabel8
+            // 
+            this.toolStripLabel8.Name = "toolStripLabel8";
+            this.toolStripLabel8.Size = new System.Drawing.Size(78, 22);
+            this.toolStripLabel8.Text = "Ler Inglês Vel:";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripVelocidadeInglesPassivo
+            // 
+            this.toolStripVelocidadeInglesPassivo.AutoCompleteCustomSource.AddRange(new string[] {
+            "-10",
+            "-9",
+            "-8",
+            "-7",
+            "-6",
+            "-5",
+            "-4",
+            "-3",
+            "-2",
+            "-1",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.toolStripVelocidadeInglesPassivo.Items.AddRange(new object[] {
+            "-10",
+            "-9",
+            "-8",
+            "-7",
+            "-6",
+            "-5",
+            "-4",
+            "-3",
+            "-2",
+            "-1",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.toolStripVelocidadeInglesPassivo.Name = "toolStripVelocidadeInglesPassivo";
+            this.toolStripVelocidadeInglesPassivo.Size = new System.Drawing.Size(75, 25);
+            this.toolStripVelocidadeInglesPassivo.Text = "-2";
+            // 
+            // toolStripLerPortugues
+            // 
+            this.toolStripLerPortugues.Items.AddRange(new object[] {
+            "Não Ler Português",
+            "Ler Português"});
+            this.toolStripLerPortugues.Name = "toolStripLerPortugues";
+            this.toolStripLerPortugues.Size = new System.Drawing.Size(120, 25);
+            this.toolStripLerPortugues.Text = "Não Ler Português";
+            // 
+            // toolStripVelocidadePortugues
+            // 
+            this.toolStripVelocidadePortugues.AutoCompleteCustomSource.AddRange(new string[] {
+            "-10",
+            "-9",
+            "-8",
+            "-7",
+            "-6",
+            "-5",
+            "-4",
+            "-3",
+            "-2",
+            "-1",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.toolStripVelocidadePortugues.Items.AddRange(new object[] {
+            "-10",
+            "-9",
+            "-8",
+            "-7",
+            "-6",
+            "-5",
+            "-4",
+            "-3",
+            "-2",
+            "-1",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.toolStripVelocidadePortugues.Name = "toolStripVelocidadePortugues";
+            this.toolStripVelocidadePortugues.Size = new System.Drawing.Size(75, 25);
+            this.toolStripVelocidadePortugues.Text = "-2";
+            // 
+            // toolStripVozPortugues
+            // 
+            this.toolStripVozPortugues.Name = "toolStripVozPortugues";
+            this.toolStripVozPortugues.Size = new System.Drawing.Size(100, 25);
+            // 
+            // toolStripButtonLerLista
+            // 
+            this.toolStripButtonLerLista.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonLerLista.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonLerLista.Image")));
+            this.toolStripButtonLerLista.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonLerLista.Name = "toolStripButtonLerLista";
+            this.toolStripButtonLerLista.Size = new System.Drawing.Size(57, 22);
+            this.toolStripButtonLerLista.Text = "Ler Lista!";
+            this.toolStripButtonLerLista.Click += new System.EventHandler(this.toolStripButtonLerLista_Click);
+            // 
+            // licoesBindingSource
+            // 
+            this.licoesBindingSource.DataMember = "Licoes";
+            this.licoesBindingSource.DataSource = this.iNGLES_SEM_MESTREDataSet;
+            this.licoesBindingSource.Sort = "Grupo ASC, Numero DESC";
+            // 
+            // iNGLES_SEM_MESTREDataSet
+            // 
+            this.iNGLES_SEM_MESTREDataSet.DataSetName = "INGLES_SEM_MESTREDataSet";
+            this.iNGLES_SEM_MESTREDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Numero";
+            this.dataGridViewTextBoxColumn1.HeaderText = "#";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 39;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Titulo";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Titulo";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 58;
+            // 
+            // numeroDataGridViewTextBoxColumn
+            // 
+            this.numeroDataGridViewTextBoxColumn.DataPropertyName = "Numero";
+            this.numeroDataGridViewTextBoxColumn.HeaderText = "Numero";
+            this.numeroDataGridViewTextBoxColumn.Name = "numeroDataGridViewTextBoxColumn";
+            this.numeroDataGridViewTextBoxColumn.Width = 69;
+            // 
+            // numeroSecaoDataGridViewTextBoxColumn
+            // 
+            this.numeroSecaoDataGridViewTextBoxColumn.DataPropertyName = "Numero_Secao";
+            this.numeroSecaoDataGridViewTextBoxColumn.HeaderText = "Numero_Secao";
+            this.numeroSecaoDataGridViewTextBoxColumn.Name = "numeroSecaoDataGridViewTextBoxColumn";
+            this.numeroSecaoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.numeroSecaoDataGridViewTextBoxColumn.Width = 106;
+            // 
+            // tituloSecaoDataGridViewTextBoxColumn
+            // 
+            this.tituloSecaoDataGridViewTextBoxColumn.DataPropertyName = "Titulo_Secao";
+            this.tituloSecaoDataGridViewTextBoxColumn.HeaderText = "Titulo_Secao";
+            this.tituloSecaoDataGridViewTextBoxColumn.Name = "tituloSecaoDataGridViewTextBoxColumn";
+            this.tituloSecaoDataGridViewTextBoxColumn.Width = 95;
+            // 
+            // materiaPortuguesDataGridViewTextBoxColumn
+            // 
+            this.materiaPortuguesDataGridViewTextBoxColumn.DataPropertyName = "Materia_Portugues";
+            this.materiaPortuguesDataGridViewTextBoxColumn.HeaderText = "Materia_Portugues";
+            this.materiaPortuguesDataGridViewTextBoxColumn.Name = "materiaPortuguesDataGridViewTextBoxColumn";
+            this.materiaPortuguesDataGridViewTextBoxColumn.Width = 121;
+            // 
+            // numeroSecaoDataGridViewTextBoxColumn1
+            // 
+            this.numeroSecaoDataGridViewTextBoxColumn1.DataPropertyName = "Numero_Secao";
+            this.numeroSecaoDataGridViewTextBoxColumn1.HeaderText = "Numero_Secao";
+            this.numeroSecaoDataGridViewTextBoxColumn1.Name = "numeroSecaoDataGridViewTextBoxColumn1";
+            this.numeroSecaoDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.numeroSecaoDataGridViewTextBoxColumn1.Width = 106;
+            // 
+            // materiaPortuguesDataGridViewTextBoxColumn1
+            // 
+            this.materiaPortuguesDataGridViewTextBoxColumn1.DataPropertyName = "Materia_Portugues";
+            this.materiaPortuguesDataGridViewTextBoxColumn1.HeaderText = "Materia_Portugues";
+            this.materiaPortuguesDataGridViewTextBoxColumn1.Name = "materiaPortuguesDataGridViewTextBoxColumn1";
+            this.materiaPortuguesDataGridViewTextBoxColumn1.Width = 121;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Numero_Secao";
+            this.dataGridViewTextBoxColumn4.HeaderText = "# S";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 49;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Titulo_Secao";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Título";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Numero_Lista_de_Traducoes";
+            this.dataGridViewTextBoxColumn6.HeaderText = "#";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 39;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Ingles";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Ingles";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Traducao";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Traducao";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 78;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Fonetico";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Fonetico";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 73;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Transliteracao";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Transliteracao";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 99;
+            // 
+            // licoesTableAdapter
+            // 
+            this.licoesTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.LicoesTableAdapter = this.licoesTableAdapter;
+            this.tableAdapterManager.Lista_de_TraducoesTableAdapter = this.lista_de_TraducoesTableAdapter;
+            this.tableAdapterManager.SecaoTableAdapter = this.secaoTableAdapter;
+            this.tableAdapterManager.UpdateOrder = Ingles_Sem_Mestre.INGLES_SEM_MESTREDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // lista_de_TraducoesTableAdapter
+            // 
+            this.lista_de_TraducoesTableAdapter.ClearBeforeFill = true;
+            // 
+            // secaoTableAdapter
+            // 
+            this.secaoTableAdapter.ClearBeforeFill = true;
             // 
             // frm01_Licoes_Secoes_ListaTraducoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1235, 737);
+            this.ClientSize = new System.Drawing.Size(1346, 737);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.statusStrip1);
@@ -1436,8 +1758,6 @@
             this.Text = "Inglês sem Mestre - Lições -> Seções -> Lista de Traduções";
             this.Load += new System.EventHandler(this.frm01_Licoes_Secoes_ListaTraducoes_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frm01_Licoes_Secoes_ListaTraducoes_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.iNGLES_SEM_MESTREDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.licoesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.licoesBindingNavigator)).EndInit();
             this.licoesBindingNavigator.ResumeLayout(false);
             this.licoesBindingNavigator.PerformLayout();
@@ -1515,6 +1835,8 @@
             this.tabPage2.PerformLayout();
             this.tabMateria_Licao.ResumeLayout(false);
             this.tabMateria_Licao.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.licoesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iNGLES_SEM_MESTREDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1601,7 +1923,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton14;
         private System.Windows.Forms.ToolStrip toolStrip4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel5;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox3;
+        private System.Windows.Forms.ToolStripTextBox toolStripLessonSearch;
         private System.Windows.Forms.ToolStripContentPanel ContentPanel;
         private System.Windows.Forms.ToolStripPanel LeftToolStripPanel;
         private System.Windows.Forms.ToolStripPanel RightToolStripPanel;
@@ -1633,5 +1955,22 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripButton toolStripButton_Backup;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel7;
+        private System.Windows.Forms.ToolStripComboBox toolStripRateVoice;
+        private System.Windows.Forms.ToolStripComboBox toolStripRateVoiceSlow;
+        private System.Windows.Forms.Timer timerTraducoes;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel8;
+        private System.Windows.Forms.ToolStripComboBox toolStripVelocidadeInglesPassivo;
+        private System.Windows.Forms.ToolStripComboBox toolStripLerPortugues;
+        private System.Windows.Forms.ToolStripComboBox toolStripVelocidadePortugues;
+        private System.Windows.Forms.ToolStripComboBox toolStripVozPortugues;
+        private System.Windows.Forms.ToolStripButton toolStripButtonLerLista;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numeroDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numeroSecaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tituloSecaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materiaPortuguesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numeroSecaoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materiaPortuguesDataGridViewTextBoxColumn1;
     }
 }

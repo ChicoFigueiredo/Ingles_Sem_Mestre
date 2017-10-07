@@ -58,6 +58,13 @@ namespace Ingles_Sem_Mestre
             SpeechSynthesizer reader = new SpeechSynthesizer();
             toolStripComboBox_Vozes.Items.AddRange(reader.GetInstalledVoices().Select(s => s.VoiceInfo.Name).ToArray<string>());
             toolStripComboBox_Vozes.Text = reader.GetInstalledVoices().Where(w => w.VoiceInfo.Culture.Name == "en-US").Select(s => s.VoiceInfo.Name).FirstOrDefault().ToString();
+            toolStripRateVoice.Text = Properties.Settings.Default.Velocidade_Padrão;
+            toolStripRateVoiceSlow.Text = Properties.Settings.Default.Velocidade_Padrão_Lerdo;
+
+            toolStripVozPortugues.Items.AddRange(reader.GetInstalledVoices().Select(s => s.VoiceInfo.Name).ToArray<string>());
+            toolStripVozPortugues.Text = reader.GetInstalledVoices().Where(w => w.VoiceInfo.Culture.Name == "pt-BR").Select(s => s.VoiceInfo.Name).FirstOrDefault().ToString();
+            toolStripVelocidadeInglesPassivo.Text = Properties.Settings.Default.Velocidade_Padrão;
+            toolStripVelocidadePortugues.Text = Properties.Settings.Default.Velocidade_Padrão;
 
         }
 
@@ -127,13 +134,13 @@ namespace Ingles_Sem_Mestre
                 inglesTextBox.Focus();
                 e.Handled = true;
             }
-            else if ((e.KeyCode == Keys.Left || e.KeyCode == Keys.Up) && e.Control == true)
+            else if ((/*e.KeyCode == Keys.Left ||*/ e.KeyCode == Keys.Up) && e.Control == true)
             {
                 lista_de_TraducoesBindingSource.MovePrevious();
                 inglesTextBox.Focus();
                 e.Handled = true;
             }
-            else if ((e.KeyCode == Keys.Right || e.KeyCode == Keys.Down) && e.Control == true)
+            else if ((/*e.KeyCode == Keys.Right ||*/ e.KeyCode == Keys.Down) && e.Control == true)
             {
                 lista_de_TraducoesBindingSource.MoveNext();
                 inglesTextBox.Focus();
@@ -164,7 +171,7 @@ namespace Ingles_Sem_Mestre
             }
             else if (e.KeyCode == Keys.F3 || (e.KeyCode == Keys.Divide && e.Control == true))
             {
-                Ler_Ingles(inglesTextBox.Text);
+                Ler_Ingles(inglesTextBox.Text, e.Shift ? toolStripRateVoiceSlow.Text : toolStripRateVoice.Text);
                 e.Handled = true;
             }
             else if ((e.KeyCode == Keys.F && e.Control == true) || (e.KeyCode == Keys.Multiply && e.Control == true))
@@ -172,24 +179,34 @@ namespace Ingles_Sem_Mestre
                 Control C = GetFocusedControl();
                 try
                 {
-                    Ler_Ingles(C.Text);
-                    e.Handled = true;
+                    Ler_Ingles(inglesTextBox.Text, e.Shift ? toolStripRateVoiceSlow.Text : toolStripRateVoice.Text);
                 }
-                catch(Exception Err)
+                catch (Exception Err)
                 {
                     Console.Write(Err.Message);
-                    e.Handled = true;
                 }
+                e.Handled = true;
             }
         }
 
-        private void Ler_Ingles(string texto)
+        private void Ler_Ingles(string texto, string velocity = "",bool Async = true)
         {
+            velocity = velocity == "" ? toolStripRateVoice.Text : velocity;
             SpeechSynthesizer reader = new SpeechSynthesizer();
             reader.SelectVoice(toolStripComboBox_Vozes.Text);
-            reader.Rate = -2;
+            reader.Rate = int.Parse(velocity);
             reader.Volume = 100;
-            reader.SpeakAsync(texto);
+            if (Async) { reader.SpeakAsync(texto); } else { reader.Speak(texto); };
+        }
+
+        private void Ler_Portugues(string texto, string velocity = "", bool Async = true)
+        {
+            velocity = velocity == "" ? toolStripVelocidadePortugues.Text : velocity;
+            SpeechSynthesizer reader = new SpeechSynthesizer();
+            reader.SelectVoice(toolStripVozPortugues.Text);
+            reader.Rate = int.Parse(velocity);
+            reader.Volume = 100;
+            if (Async) { reader.SpeakAsync(texto); } else { reader.Speak(texto); };
         }
 
         private void toolStripButton14_Click(object sender, EventArgs e)
@@ -212,7 +229,7 @@ namespace Ingles_Sem_Mestre
             {
                 try
                 {
-                    Ler_Ingles(inglesTextBox.Text);
+                    Ler_Ingles(inglesTextBox.Text, e.Shift ? toolStripRateVoiceSlow.Text : toolStripRateVoice.Text);
 
                     traducaoTextBox.Text = TradutorGOOGLE.Get_Traducao(inglesTextBox.Text);
                     foneticoTextBox.Text = FoneticoPHOTRANSEDIT.Get_Fonetico(inglesTextBox.Text);
@@ -235,6 +252,9 @@ namespace Ingles_Sem_Mestre
                     }
                 }
                 
+            } else if(e.KeyCode == Keys.F && e.Control == true)
+            {
+                e.Handled = true;
             }
         }
         private void inglesTextBox_TextChanged(object sender, EventArgs e)
@@ -309,6 +329,92 @@ namespace Ingles_Sem_Mestre
         private void toolStripButton_Backup_Click(object sender, EventArgs e)
         {
             SQL_Utilities.Backup();
+        }
+
+        private void toolStripRateVoice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripRateVoice_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLessonSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+        }
+
+        private void toolStripLessonSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                timerTraducoes_Tick(sender, e);
+            } else
+            {
+                timerTraducoes.Enabled = true;
+                timerTraducoes.Stop();
+                timerTraducoes.Start();
+            }
+        }
+
+        private void timerTraducoes_Tick(object sender, EventArgs e)
+        {
+            toolStripLessonSearch_Leave(sender, e);
+            timerTraducoes.Enabled = false;
+            timerTraducoes.Stop();
+        }
+
+        private void toolStripLessonSearch_Leave(object sender, EventArgs e)
+        {
+
+            Int32 a = -1;
+            if (toolStripLessonSearch.Text.Trim() == "")
+            {
+                lista_de_TraducoesBindingSource.RemoveFilter();
+            }
+            else
+            {
+                String Completa = "";
+                lista_de_TraducoesBindingSource.Filter = "";
+                String[] palavas_chaves = toolStripLessonSearch.Text.Trim().Split();
+                foreach (string w in palavas_chaves)
+                {
+                    lista_de_TraducoesBindingSource.Filter = lista_de_TraducoesBindingSource.Filter + Completa + "((Ingles like \'%" + w + "%\') or (Traducao like \'%" + w + "%\'))";
+                    if (Completa == "")
+                    {
+                        Completa = " and ";
+                    }
+                }
+
+            };
+            timerTraducoes.Enabled = false;
+        }
+
+        private void lista_de_TraducoesBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButtonLerLista_Click(object sender, EventArgs e)
+        {
+            bool acabou = false;
+            lista_de_TraducoesBindingSource.MoveFirst();
+            do
+            {
+                Ler_Ingles(inglesTextBox.Text, toolStripVelocidadeInglesPassivo.Text,false); Application.DoEvents();
+                if (toolStripLerPortugues.Text == "Ler Português") { Ler_Portugues(traducaoTextBox.Text, toolStripVelocidadePortugues.Text, false); }; Application.DoEvents();
+                if (lista_de_TraducoesBindingSource.Position + 1 == lista_de_TraducoesBindingSource.Count)
+                {
+                    acabou = true;
+                } else
+                {
+                    acabou = false; lista_de_TraducoesBindingSource.MoveNext();
+                    Application.DoEvents();
+                }
+                Application.DoEvents();
+            } while (!acabou);
+            MessageBox.Show("Leitura passiva terminada!");
         }
     }
 }

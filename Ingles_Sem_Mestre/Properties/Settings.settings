@@ -13,5 +13,11 @@
     <Setting Name="Padrao_Backup" Type="System.String" Scope="Application">
       <Value Profile="(Default)">C:\Users\\franf\OneDrive\BACKUPs\Ingles_Sem_Mestre_{0}.bak</Value>
     </Setting>
+    <Setting Name="Velocidade_Padrão" Type="System.String" Scope="User">
+      <Value Profile="(Default)">-3</Value>
+    </Setting>
+    <Setting Name="Velocidade_Padrão_Lerdo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">-7</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

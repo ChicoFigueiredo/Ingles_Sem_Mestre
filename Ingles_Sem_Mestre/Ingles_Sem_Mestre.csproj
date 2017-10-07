@@ -13,9 +13,9 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\VBOXSRV\dados\Projetos\Ingles_sem_Mestre\Programa_Pronto\</PublishUrl>
+    <PublishUrl>D:\Projetos\Ingles_sem_Mestre\Programa_Pronto\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Unc</InstallFrom>
+    <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -23,10 +23,9 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>\\VBOXSRV\dados\Projetos\Ingles_sem_Mestre\Programa_Pronto\</UpdateUrl>
-    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <UpdateUrl>\\CEREBRO\d%24\Projetos\Ingles_sem_Mestre\Programa_Pronto\</UpdateUrl>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>21</ApplicationRevision>
+    <ApplicationRevision>27</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -52,7 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>69CFE0B0421C896F4DDCA5AD3C882E188613AEBF</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>1B60EE826E48D2AEAA3EFFF7DD25E06F9CAE79B0</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>Ingles_Sem_Mestre_TemporaryKey.pfx</ManifestKeyFile>
@@ -64,11 +63,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Ingles_Sem_Mestre_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <DelaySign>false</DelaySign>
