@@ -103,7 +103,7 @@ namespace Ingles_Sem_Mestre
             {
                 tabControl_Licao.SelectedIndex = 0;
                 tabControl_Secao.SelectedIndex = 1;
-                materia_PortuguesRichTextBox1.Focus();
+                rtfMateria.Focus();
                 e.Handled = true;
             }
             else if (e.KeyCode == Keys.F9)
@@ -415,6 +415,46 @@ namespace Ingles_Sem_Mestre
                 Application.DoEvents();
             } while (!acabou);
             MessageBox.Show("Leitura passiva terminada!");
+        }
+
+        private void btnTranslateBatch_Click(object sender, EventArgs e)
+        {
+            String[] frases = rtfMateria.Text.ToString().Split(new char[] { '.', '?', '!', '\n' });
+            Application.DoEvents();
+            tabControl_Secao.SelectedIndex = 0;
+            Application.DoEvents();
+            while (lista_de_TraducoesBindingSource.Count > 0)
+            {
+                lista_de_TraducoesBindingSource.RemoveAt(0);
+                Application.DoEvents();
+            }
+            foreach (string l in frases)
+            {
+                Application.DoEvents();
+                if (l.Trim() != "")
+                {
+                    lista_de_TraducoesBindingSource.AddNew(); Application.DoEvents();
+                    inglesTextBox.Text = l.Trim(); Application.DoEvents();
+                    try
+                    {
+                        traducaoTextBox.Text = TradutorGOOGLE.Get_Traducao(inglesTextBox.Text); Application.DoEvents();
+                        foneticoTextBox.Text = FoneticoPHOTRANSEDIT.Get_Fonetico(inglesTextBox.Text); Application.DoEvents();
+                        Ler_Ingles(inglesTextBox.Text, toolStripRateVoice.Text,false); Application.DoEvents();
+                    }
+                    catch (Exception Err)
+                    {
+                        try
+                        {
+                            foneticoTextBox.Text = FoneticoPHOTRANSEDIT.Get_Fonetico(inglesTextBox.Text); Application.DoEvents();
+                        }
+                        catch (Exception Err2)
+                        {
+                            foneticoTextBox.Text = "<<" + Err.Message + " at " + Err.Source + " / " + Err2.Message + " at " + Err2.Source + ">>"; Application.DoEvents();
+                        }
+                    }
+                }
+                Application.DoEvents();
+            }
         }
     }
 }
